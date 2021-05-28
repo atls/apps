@@ -1,0 +1,32 @@
+{
+  "name": "@grpc-playground/editor-fragment",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "dependencies": {
+    "@atls-ui-parts/layout": "^0.0.1",
+    "@atls-ui-proto/button": "^0.0.1",
+    "@atls-ui-proto/input": "^0.0.1",
+    "@atls-ui-proto/layout": "^0.0.1",
+    "@atls-ui-proto/text": "^0.0.1",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
+    "@grpc-playground/data-registry": "workspace:0.0.0",
+    "@grpc-playground/proto-registry": "workspace:0.0.0",
+    "ace-builds": "^1.4.12",
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2",
+    "protobufjs": "^6.10.2",
+    "react": "^17.0.2",
+    "react-ace": "9.4.0",
+    "styled-system": "^5.1.5",
+    "styled-tools": "^1.7.2"
+  },
+  "devDependencies": {
+    "@types/lodash.get": "^4",
+    "@types/lodash.set": "^4",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/styled-system": "^5.1.11"
+  }
+}

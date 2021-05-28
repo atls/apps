@@ -1,0 +1,9 @@
+{
+  "name": "@grpc-playground/grpc-http-proxy-client",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "devDependencies": {
+    "buffer-json": "^2.0.0"
+  }
+}
