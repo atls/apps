@@ -1,0 +1,18 @@
+{
+  "name": "@grpc-playground/tabs-fragment",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "dependencies": {
+    "@atls-ui-proto/layout": "^0.0.1",
+    "@atls-ui-proto/text": "^0.0.1",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
+    "@grpc-playground/proto-registry": "workspace:0.0.0",
+    "history": "^5.0.0",
+    "react": "^17.0.2",
+    "react-router-dom": "^6.0.0-beta.0",
+    "styled-system": "^5.1.5",
+    "styled-tools": "^1.7.2"
+  }
+}
