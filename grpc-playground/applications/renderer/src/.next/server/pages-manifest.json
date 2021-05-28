@@ -1,0 +1,9 @@
+{
+  "/_app": "pages/_app.js",
+  "/api/grpc-proxy/[service]/[method]": "pages/api/grpc-proxy/[service]/[method].js",
+  "/api/grpc-proxy/grpc.reflection.v1alpha.ServerReflection/ServerReflectionInfo": "pages/api/grpc-proxy/grpc.reflection.v1alpha.ServerReflection/ServerReflectionInfo.js",
+  "/": "pages/index.html",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}

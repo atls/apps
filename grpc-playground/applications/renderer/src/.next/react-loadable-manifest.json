@@ -1,0 +1,11 @@
+{
+  "index.tsx -> @grpc-playground/index-page": {
+    "id": 6291,
+    "files": [
+      "static/chunks/framework-cca20654c4c5d54084a4.js",
+      "static/chunks/28ebba39.2e719ecb18072842a253.js",
+      "static/chunks/33.dfe44b9142e8877e011f.js",
+      "static/chunks/291.846874e94dd14a4605eb.js"
+    ]
+  }
+}
