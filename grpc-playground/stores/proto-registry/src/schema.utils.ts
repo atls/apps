@@ -101,7 +101,9 @@ export const buildField = (field, stackDepth = {}) => {
 export const buildEnum = (enumType) => {
   const enumKey = Object.keys(enumType.values)[0]
 
-  return enumType.values[enumKey]
+  return {
+    value: enumType.values[enumKey],
+  }
 }
 
 export const pickOneOf = (oneofs) =>
