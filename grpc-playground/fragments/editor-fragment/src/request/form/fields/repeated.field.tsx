@@ -18,9 +18,33 @@ export const RepeatedField = ({ name, path, children }) => {
     }
   }, [value, onChange])
 
+  const onRemove = useCallback(
+    (index) => {
+      onChange(value.filter((_, i) => index === i))
+    },
+    [value, onChange]
+  )
+
   const items = useMemo(
-    () => value.map((child, index) => children([...path, index])),
-    [children, value, path]
+    () =>
+      value.map((child, index) => (
+        <Row>
+          <Layout>{children([...path, index])}</Layout>
+          <Layout pl={16} pt={36}>
+            {index > 0 && (
+              <Button
+                size='small'
+                inverted
+                style={{ borderWidth: 0 }}
+                onClick={() => onRemove(index)}
+              >
+                -
+              </Button>
+            )}
+          </Layout>
+        </Row>
+      )),
+    [children, value, path, onRemove]
   )
 
   return (
