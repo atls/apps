@@ -9,7 +9,7 @@ import { JsonRequest } from './json'
 import { FormRequest } from './form'
 
 export const Request = (props) => {
-  const [type, setType] = useState('form')
+  const [type, setType] = useState('json')
 
   return (
     <Column height='100%'>
