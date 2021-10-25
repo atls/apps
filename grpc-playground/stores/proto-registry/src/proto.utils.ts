@@ -38,17 +38,13 @@ export const matchingAncestorNamespaceLookup = (typeName, parentNamespace, names
 }
 
 export const walkNamespace = (root, onNamespace, parentNamespace?) => {
-  const nestedType = (parentNamespace && parentNamespace.nested) || root.nested
+  // eslint-disable-next-line
+  const namespace = parentNamespace ? parentNamespace : root
+  const nestedType = namespace.nested
 
   if (nestedType) {
     Object.keys(nestedType).forEach((typeName) => {
-      if (parentNamespace) {
-        // eslint-disable-next-line
-        typeName = matchingAncestorNamespaceLookup(typeName, parentNamespace, typeName)
-      }
-
-      const nestedNamespace = root.lookup(typeName)
-
+      const nestedNamespace = root.lookup(`${namespace.fullName}.${typeName}`)
       if (nestedNamespace && isNamespace(nestedNamespace)) {
         onNamespace(nestedNamespace)
         walkNamespace(root, onNamespace, nestedNamespace)
