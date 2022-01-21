@@ -12,7 +12,7 @@ export const Sidebar = () => {
   const schema = useSchema()
 
   return (
-    <Column py={24}>
+    <Column py={24} style={{overflowY: 'auto'}}>
       {Object.keys(schema).map((service) => (
         <Layout key={service}>
           <Column pb={16}>
