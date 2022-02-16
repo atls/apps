@@ -1,4 +1,3 @@
-/* eslint-disable */
 export const protobufPackage = 'grpc.reflection.v1alpha'
 
 /** The message sent by the client when calling ServerReflectionInfo method. */

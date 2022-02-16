@@ -1,9 +1,9 @@
-const withPlugins = require('next-compose-plugins')
-const { withWorkspaces } = require('@atls/next-config-with-pnp-workspaces')
-
-const nextConfig = {
-  future: {
-    webpack5: true,
+module.exports = {
+  experimental: {
+    externalDir: true,
+    swcFileReading: false,
+    workerThreads: true,
+    esmExternals: 'loose',
   },
   webpack: (config) => {
     // eslint-disable-next-line
@@ -24,5 +24,3 @@ const nextConfig = {
     return config
   },
 }
-
-module.exports = withPlugins([withWorkspaces], nextConfig)

@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable react/jsx-no-useless-fragment */
 
 import React             from 'react'
-import { FC }            from 'react'
 import { Field }         from 'protobufjs'
 import { Type }          from 'protobufjs'
 import { Enum }          from 'protobufjs'
 import { MapField }      from 'protobufjs'
+import { FC }            from 'react'
 
+import { SCALAR_TYPES }  from './constants'
+import { EnumField }     from './enum.field'
+import { GroupField }    from './group.field'
 import { RepeatedField } from './repeated.field'
 import { ScalarField }   from './scalar.field'
-import { GroupField }    from './group.field'
-import { EnumField }     from './enum.field'
-import { SCALAR_TYPES }  from './constants'
 
 const RepeatedTypeField = ({ field, path }) => (
   <RepeatedField name={field.name} path={path}>
