@@ -1,16 +1,16 @@
 {
   "name": "@grpc-playground/proto-registry",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "main": "src/index.ts",
   "dependencies": {
-    "@grpc-playground/grpc-http-proxy-client": "workspace:0.0.0",
+    "@grpc-playground/grpc-http-proxy-client": "workspace:0.0.1",
     "lodash.set": "^4.3.2",
     "protobufjs": "^6.10.2",
     "react": "^17.0.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/uuid": "^8"
+    "@types/uuid": "^8.3.4"
   }
 }

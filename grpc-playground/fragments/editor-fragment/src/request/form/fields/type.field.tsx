@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable react/jsx-no-useless-fragment */
 
 import React             from 'react'
 import { FC }            from 'react'
