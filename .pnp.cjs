@@ -341,7 +341,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@atls-ui-parts/text", "virtual:240edc4ab0d6ecc527c2088b94e9a1fde1420b693eab8f5177b5405c161a8744f682294a23c6aca0a766abf1e480d3fa654672fb2bd1b1d087670a413697a8be#npm:0.0.6"],\
             ["@emotion/styled", "virtual:0988fe1c67292243405adfb00344aea85d5451ef42d22a33069b77cf64fc99b376a5429f7783ad29d7cbf87dc1e5f6d43600f099fb46e8b2254586bd3a88b41b#npm:11.3.0"],\
             ["@types/emotion__styled", null],\
-            ["@types/react", "npm:17.0.8"],\
+            ["@types/react", "npm:17.0.43"],\
             ["react", "npm:17.0.2"],\
             ["styled-system", "npm:5.1.5"]\
           ],\
@@ -1862,7 +1862,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/utils", "npm:1.0.0"],\
             ["@types/babel__core", null],\
             ["@types/emotion__react", null],\
-            ["@types/react", "npm:17.0.8"],\
+            ["@types/react", "npm:17.0.43"],\
             ["react", "npm:17.0.2"]\
           ],\
           "packagePeers": [\
@@ -3100,16 +3100,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["csstype", "npm:3.0.8"]\
           ],\
           "linkType": "HARD"\
-        }],\
-        ["npm:17.0.8", {\
-          "packageLocation": "./.yarn/cache/@types-react-npm-17.0.8-1688553ccc-6398dc2006.zip/node_modules/@types/react/",\
-          "packageDependencies": [\
-            ["@types/react", "npm:17.0.8"],\
-            ["@types/prop-types", "npm:15.7.3"],\
-            ["@types/scheduler", "npm:0.16.1"],\
-            ["csstype", "npm:3.0.8"]\
-          ],\
-          "linkType": "HARD"\
         }]\
       ]],\
       ["@types/react-dom", [\
@@ -3117,7 +3107,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-react-dom-npm-17.0.14-d1c78a4e4e-b54cd0ef57.zip/node_modules/@types/react-dom/",\
           "packageDependencies": [\
             ["@types/react-dom", "npm:17.0.14"],\
-            ["@types/react", "npm:17.0.8"]\
+            ["@types/react", "npm:17.0.43"]\
           ],\
           "linkType": "HARD"\
         }]\
