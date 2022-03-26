@@ -1,17 +1,17 @@
 {
   "name": "@grpc-playground/index-page",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "main": "src/index.ts",
   "dependencies": {
-    "@atls-ui-parts/layout": "^0.0.1",
+    "@atls-ui-parts/layout": "^0.0.3",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
-    "@grpc-playground/data-registry": "workspace:0.0.0",
-    "@grpc-playground/editor-fragment": "workspace:0.0.0",
-    "@grpc-playground/proto-registry": "workspace:0.0.0",
-    "@grpc-playground/sidebar-fragment": "workspace:0.0.0",
-    "@grpc-playground/tabs-fragment": "workspace:0.0.0",
+    "@grpc-playground/data-registry": "workspace:0.0.1",
+    "@grpc-playground/editor-fragment": "workspace:0.0.1",
+    "@grpc-playground/proto-registry": "workspace:0.0.1",
+    "@grpc-playground/sidebar-fragment": "workspace:0.0.1",
+    "@grpc-playground/tabs-fragment": "workspace:0.0.1",
     "history": "^5.0.0",
     "react": "^17.0.2",
     "react-router-dom": "^6.0.0-beta.0",
@@ -19,8 +19,8 @@
     "styled-tools": "^1.7.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "@types/styled-system": "^5.1.11"
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "@types/styled-system": "^5.1.15"
   }
 }

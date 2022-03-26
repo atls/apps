@@ -1,10 +1,10 @@
 {
   "name": "@grpc-playground/data-registry",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "main": "src/index.ts",
   "dependencies": {
-    "@grpc-playground/proto-registry": "workspace:0.0.0",
+    "@grpc-playground/proto-registry": "workspace:0.0.1",
     "lodash.set": "^4.3.2",
     "react": "^17.0.2"
   }
