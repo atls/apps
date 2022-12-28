@@ -46,3 +46,7 @@ package.tgz
 
 # next.js output
 .next
+
+# IDE
+.idea
+*.iml
