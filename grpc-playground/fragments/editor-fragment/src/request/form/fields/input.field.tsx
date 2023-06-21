@@ -1,8 +1,9 @@
-import React        from 'react'
 import { Input }    from '@atls-ui-proto/input'
-import { Text }     from '@atls-ui-proto/text'
 import { Column }   from '@atls-ui-proto/layout'
 import { Layout }   from '@atls-ui-proto/layout'
+import { Text }     from '@atls-ui-proto/text'
+
+import React        from 'react'
 
 import { useField } from '../form'
 

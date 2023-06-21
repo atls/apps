@@ -1,5 +1,5 @@
-import { useMemo }      from 'react'
 import { Type }         from 'protobufjs'
+import { useMemo }      from 'react'
 
 import { walkServices } from './proto.utils'
 import { useRoot }      from './use-root.hook'

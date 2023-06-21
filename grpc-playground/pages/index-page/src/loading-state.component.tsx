@@ -10,10 +10,10 @@ export const LoadingState = ({ children }) => {
   useEffect(() => {
     const onLoad = () => setLoaded(true)
 
-    dataRegistry.on('load', onLoad)
+    dataRegistry?.on('load', onLoad)
 
     return () => {
-      dataRegistry.off('load', onLoad)
+      dataRegistry?.off('load', onLoad)
     }
   }, [dataRegistry])
 

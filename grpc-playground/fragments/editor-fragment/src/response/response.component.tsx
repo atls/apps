@@ -1,16 +1,19 @@
-import React       from 'react'
-import { useMemo } from 'react'
-import { FC }      from 'react'
-import AceEditor   from 'react-ace'
-
-import 'ace-builds/src-noconflict/mode-json'
-import 'ace-builds/src-noconflict/theme-textmate'
+import React         from 'react'
+import AceEditor     from 'react-ace'
+import { FC }        from 'react'
+import { useEffect } from 'react'
+import { useMemo }   from 'react'
 
 export interface ResponseProps {
   data: any
 }
 
 export const Response: FC<ResponseProps> = ({ data = {} }) => {
+  useEffect(() => {
+    import('ace-builds/src-noconflict/mode-json')
+    import('ace-builds/src-noconflict/theme-textmate')
+  }, [])
+
   const value = useMemo(() => JSON.stringify(data, null, 2), [data])
 
   return (

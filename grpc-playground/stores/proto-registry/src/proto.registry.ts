@@ -1,12 +1,13 @@
-import { GrpcHttpProxyClient }      from '@grpc-playground/grpc-http-proxy-client'
 import Descriptor                   from 'protobufjs/ext/descriptor'
-import { Root }                     from 'protobufjs'
 import set                          from 'lodash.set'
 import { EventEmitter }             from 'events'
+import { Root }                     from 'protobufjs'
+
+import { GrpcHttpProxyClient }      from '@grpc-playground/grpc-http-proxy-client'
 
 import { ServerReflectionResponse } from './reflection.interfaces'
-import { buildServiceMethods }      from './schema.utils'
 import { walkServices }             from './proto.utils'
+import { buildServiceMethods }      from './schema.utils'
 
 export class ProtoRegistry extends EventEmitter {
   client: GrpcHttpProxyClient
@@ -44,8 +45,7 @@ export class ProtoRegistry extends EventEmitter {
         .map((service) =>
           this.client.call('grpc.reflection.v1alpha.ServerReflection', 'ServerReflectionInfo', {
             fileContainingSymbol: service.name,
-          })
-        )
+          }))
     )
 
     return fileDescriptorResponses

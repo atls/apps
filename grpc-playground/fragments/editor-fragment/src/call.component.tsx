@@ -1,6 +1,7 @@
-import React      from 'react'
-import { Box }    from '@atls-ui-proto/layout'
 import { Button } from '@atls-ui-proto/button'
+import { Box }    from '@atls-ui-proto/layout'
+
+import React      from 'react'
 
 export const Call = ({ onClick }) => (
   <Box width='1px' position='relative' height='100%' background='black'>

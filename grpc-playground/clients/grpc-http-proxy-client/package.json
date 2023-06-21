@@ -4,6 +4,6 @@
   "private": true,
   "main": "src/index.ts",
   "devDependencies": {
-    "buffer-json": "^2.0.0"
+    "buffer-json": "2.0.0"
   }
 }

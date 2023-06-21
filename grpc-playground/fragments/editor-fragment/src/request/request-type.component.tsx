@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React      from 'react'
-import { FC }     from 'react'
 import { Box }    from '@atls-ui-proto/layout'
 import { Row }    from '@atls-ui-proto/layout'
 import { Layout } from '@atls-ui-proto/layout'
 import { Text }   from '@atls-ui-proto/text'
+
+import React      from 'react'
+import { FC }     from 'react'
 
 export interface RequestTypeProps {
   type: string

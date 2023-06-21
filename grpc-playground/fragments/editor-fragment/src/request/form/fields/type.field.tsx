@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable react/jsx-no-useless-fragment */
 
-import React             from 'react'
-import { Field }         from 'protobufjs'
-import { Type }          from 'protobufjs'
-import { Enum }          from 'protobufjs'
-import { MapField }      from 'protobufjs'
-import { FC }            from 'react'
+import React                 from 'react'
+import { Field }             from 'protobufjs'
+import { Type }              from 'protobufjs'
+import { Enum }              from 'protobufjs'
+import { MapField }          from 'protobufjs'
+import { PropsWithChildren } from 'react'
 
-import { SCALAR_TYPES }  from './constants'
-import { EnumField }     from './enum.field'
-import { GroupField }    from './group.field'
-import { RepeatedField } from './repeated.field'
-import { ScalarField }   from './scalar.field'
+import { SCALAR_TYPES }      from './constants'
+import { EnumField }         from './enum.field'
+import { GroupField }        from './group.field'
+import { RepeatedField }     from './repeated.field'
+import { ScalarField }       from './scalar.field'
 
 const RepeatedTypeField = ({ field, path }) => (
   <RepeatedField name={field.name} path={path}>
@@ -35,7 +35,7 @@ export interface TypeFieldsProps {
   path?: Array<string>
 }
 
-export const TypeFields: FC<TypeFieldsProps> = ({ fields = [], path = [] }: TypeFieldsProps) => {
+export const TypeFields = ({ fields = [], path = [] }: TypeFieldsProps) => {
   const nodes = fields.reduce((result: any[], field) => {
     field.resolve()
 
@@ -61,7 +61,7 @@ export interface TypeFieldProps {
   path?: Array<string>
 }
 
-const TypeField: FC<TypeFieldProps> = ({ field, path = [] }) => {
+const TypeField = ({ field, path = [] }: PropsWithChildren<TypeFieldProps>) => {
   const key = path.join('.')
 
   if (field instanceof MapField) {

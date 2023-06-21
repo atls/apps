@@ -1,13 +1,13 @@
-import React         from 'react'
-import { useMemo }   from 'react'
-import { useEffect } from 'react'
-import { FC }        from 'react'
+import React                 from 'react'
+import { PropsWithChildren } from 'react'
+import { useMemo }           from 'react'
+import { useEffect }         from 'react'
 
-import { FormStore } from './form.store'
-import { Provider }  from './form.context'
-import { FormProps } from './form.interfaces'
+import { Provider }          from './form.context'
+import { FormProps }         from './form.interfaces'
+import { FormStore }         from './form.store'
 
-export const Form: FC<FormProps> = ({ data = {}, children, onChange }) => {
+export const Form = ({ data = {}, children, onChange }: PropsWithChildren<FormProps>) => {
   const store = useMemo(() => FormStore.create(data), [data])
 
   useEffect(() => {

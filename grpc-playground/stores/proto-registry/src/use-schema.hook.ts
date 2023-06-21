@@ -6,15 +6,15 @@ import { Context }    from './proto-registry.context'
 
 export const useSchema = () => {
   const registry = useContext(Context)
-  const [schema, setSchema] = useState(registry.getSchema())
+  const [schema, setSchema] = useState(registry?.getSchema())
 
   useEffect(() => {
-    const onLoad = () => setSchema(registry.getSchema())
+    const onLoad = () => setSchema(registry?.getSchema())
 
-    registry.on('load', onLoad)
+    registry?.on('load', onLoad)
 
     return () => {
-      registry.off('load', onLoad)
+      registry?.off('load', onLoad)
     }
   }, [registry])
 

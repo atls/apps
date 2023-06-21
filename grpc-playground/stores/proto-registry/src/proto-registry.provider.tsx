@@ -1,16 +1,19 @@
-import React             from 'react'
-import { useMemo }       from 'react'
-import { useEffect }     from 'react'
-import { FC }            from 'react'
+import React                 from 'react'
+import { PropsWithChildren } from 'react'
+import { useMemo }           from 'react'
+import { useEffect }         from 'react'
 
-import { ProtoRegistry } from './proto.registry'
-import { Provider }      from './proto-registry.context'
+import { Provider }          from './proto-registry.context'
+import { ProtoRegistry }     from './proto.registry'
 
 export interface ProtoRegistryProviderProps {
   url?: string
 }
 
-export const ProtoRegistryProvider: FC<ProtoRegistryProviderProps> = ({ url, children }) => {
+export const ProtoRegistryProvider = ({
+  url,
+  children,
+}: PropsWithChildren<ProtoRegistryProviderProps>) => {
   const registry = useMemo(() => new ProtoRegistry(url), [url])
 
   useEffect(() => {
