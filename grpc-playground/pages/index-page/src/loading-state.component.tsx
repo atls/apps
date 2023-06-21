@@ -4,7 +4,7 @@ import { useState }        from 'react'
 import { useDataRegistry } from '@grpc-playground/data-registry'
 
 export const LoadingState = ({ children }) => {
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(true)
   const dataRegistry = useDataRegistry()
 
   useEffect(() => {
