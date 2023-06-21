@@ -9,24 +9,31 @@
     "@atls-ui-proto/input": "0.0.13",
     "@atls-ui-proto/layout": "0.0.7",
     "@atls-ui-proto/text": "0.0.10",
-    "@emotion/react": "11.1.5",
-    "@emotion/styled": "11.3.0",
     "@grpc-playground/data-registry": "workspace:0.0.1",
     "@grpc-playground/proto-registry": "workspace:0.0.1",
     "ace-builds": "1.4.12",
     "lodash.get": "4.4.2",
     "lodash.set": "4.3.2",
     "protobufjs": "6.11.3",
+    "react-ace": "patch:react-ace@npm%3A9.4.0#~/.yarn/patches/react-ace-npm-9.4.0-c0e2dac510.patch"
+  },
+  "devDependencies": {
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
+    "@types/lodash.get": "4.4.6",
+    "@types/lodash.set": "4.3.6",
+    "@types/react": "18.2.13",
+    "@types/react-dom": "18.2.6",
+    "@types/styled-system": "5.1.16",
     "react": "18.2.0",
-    "react-ace": "9.4.0",
     "styled-system": "5.1.5",
     "styled-tools": "1.7.2"
   },
-  "devDependencies": {
-    "@types/lodash.get": "4.4.6",
-    "@types/lodash.set": "4.3.6",
-    "@types/react": "17.0.43",
-    "@types/react-dom": "17.0.20",
-    "@types/styled-system": "5.1.15"
+  "peerDependencies": {
+    "@emotion/react": "*",
+    "@emotion/styled": "*",
+    "react": "*",
+    "styled-system": "*",
+    "styled-tools": "*"
   }
 }

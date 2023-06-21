@@ -1,7 +1,7 @@
+import get             from 'lodash.get'
+import { FormEvent }   from 'react'
 import { useState }    from 'react'
 import { useCallback } from 'react'
-import { FormEvent }   from 'react'
-import get             from 'lodash.get'
 
 import { useForm }     from './use-form.hook'
 

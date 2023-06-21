@@ -1,10 +1,11 @@
-import React, { useCallback }          from 'react'
+import React                           from 'react'
+import { useCallback }                 from 'react'
 
 import { useDataRegistry }             from '@grpc-playground/data-registry'
 import { useServiceMethodRequestType } from '@grpc-playground/proto-registry'
 
-import { Form }                        from './form'
 import { TypeFields }                  from './fields'
+import { Form }                        from './form'
 
 export const FormRequest = ({ service, method }) => {
   const messageType = useServiceMethodRequestType(service, method)
@@ -12,7 +13,7 @@ export const FormRequest = ({ service, method }) => {
 
   const onChange = useCallback(
     (data) => {
-      dataRegistry.setServiceMethodData(service, method, data)
+      dataRegistry?.setServiceMethodData(service, method, data)
     },
     [service, method, dataRegistry]
   )
@@ -22,7 +23,7 @@ export const FormRequest = ({ service, method }) => {
   }
 
   return (
-    <Form data={dataRegistry.getServiceMethodData(service, method)} onChange={onChange}>
+    <Form data={dataRegistry?.getServiceMethodData(service, method)} onChange={onChange}>
       <TypeFields fields={messageType.fieldsArray} />
     </Form>
   )

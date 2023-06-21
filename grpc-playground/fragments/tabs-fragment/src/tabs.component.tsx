@@ -1,21 +1,22 @@
+import { Box }         from '@atls-ui-proto/layout'
+import { Layout }      from '@atls-ui-proto/layout'
+
 import React           from 'react'
 import { useEffect }   from 'react'
 import { useState }    from 'react'
 import { useCallback } from 'react'
-import { FC }          from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Box }         from '@atls-ui-proto/layout'
-import { Layout }      from '@atls-ui-proto/layout'
 
 import { Tab }         from './tab.component'
+import { TabProps }    from './tab.component'
 
 export interface TabsProps {
   service?: string
   method?: string
 }
 
-export const Tabs: FC<TabsProps> = ({ service, method }) => {
-  const [tabs, setTabs] = useState([])
+export const Tabs = ({ service, method }: TabsProps) => {
+  const [tabs, setTabs] = useState<Omit<TabProps, 'onClose'>[]>([])
   const navigate = useNavigate()
 
   useEffect(() => {

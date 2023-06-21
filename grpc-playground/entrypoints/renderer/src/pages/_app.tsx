@@ -1,6 +1,7 @@
-import React             from 'react'
-import { Global }        from '@emotion/react'
 import { ThemeProvider } from '@atls-ui-proto/theme'
+import { Global }        from '@emotion/react'
+
+import React             from 'react'
 
 const App = ({ Component, pageProps, ...props }) => (
   <>

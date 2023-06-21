@@ -1,10 +1,21 @@
 {
   "name": "apps",
-  "license": "BSD 3-Clause",
   "private": true,
+  "license": "BSD 3-Clause",
   "workspaces": [
     "grpc-playground/**/*"
   ],
+  "resolutions": {
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
+    "@types/eslint": "8",
+    "@types/react": "18",
+    "@types/react-dom": "18",
+    "eslint": "8.18.0",
+    "react": "18",
+    "react-dom": "18",
+    "typescript": "4.6.2"
+  },
   "devDependencies": {
     "@atls/config-jest": "0.0.6",
     "@atls/schematics": "0.0.11",
@@ -16,14 +27,7 @@
     "husky": "7.0.4",
     "typescript": "4.6.2"
   },
-  "resolutions": {
-    "@types/react": "17.0.43",
-    "@types/eslint": "8",
-    "eslint": "8.18.0",
-    "react": "18",
-    "react-dom": "18",
-    "typescript": "4.6.2"
-  },
+  "packageManager": "yarn@3.6.0",
   "tools": {
     "schematic": {
       "collection": "@atls/schematics",
@@ -31,6 +35,5 @@
       "type": "libraries",
       "migration": 1642961007531
     }
-  },
-  "packageManager": "yarn@3.6.0"
+  }
 }

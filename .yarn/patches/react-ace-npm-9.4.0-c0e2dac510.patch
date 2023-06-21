@@ -1,0 +1,26 @@
+diff --git a/lib/types.d.ts b/lib/types.d.ts
+index 3fbd75bc510688028c17b81331ae39a5583f1f6c..569482cf90a4639fb7d72e60f7ddf7272f35a342 100644
+--- a/lib/types.d.ts
++++ b/lib/types.d.ts
+@@ -123,7 +123,7 @@ export interface IAnnotation {
+ }
+ interface IRenderer extends Ace.VirtualRenderer {
+     placeholderNode?: HTMLDivElement;
+-    scroller?: HTMLDivElement;
++    scroller: HTMLDivElement;
+ }
+ export declare type IAceEditor = Ace.Editor & {
+     renderer: IRenderer;
+diff --git a/src/types.ts b/src/types.ts
+index 08fe33767bd3e069e3aeed8a1f5ebccffd8ae278..bc4500011a1d4dc5d6729e8d2addd39b9263e87d 100644
+--- a/src/types.ts
++++ b/src/types.ts
+@@ -130,7 +130,7 @@ export interface IAnnotation {
+ 
+ interface IRenderer extends Ace.VirtualRenderer {
+   placeholderNode?: HTMLDivElement;
+-  scroller?: HTMLDivElement;
++  scroller: HTMLDivElement;
+ }
+ 
+ export type IAceEditor = Ace.Editor & {

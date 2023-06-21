@@ -3,7 +3,7 @@ module.exports = {
     externalDir: true,
     swcFileReading: false,
     workerThreads: true,
-    outputStandalone: true,
     esmExternals: 'loose',
   },
+  output: 'standalone',
 }

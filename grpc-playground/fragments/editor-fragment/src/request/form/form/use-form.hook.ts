@@ -1,6 +1,7 @@
 import { useContext } from 'react'
-import { FormStore }  from './form.store'
+
 import { Context }    from './form.context'
+import { FormStore }  from './form.store'
 
 export const useForm = (): FormStore => {
   const store: FormStore = useContext(Context)

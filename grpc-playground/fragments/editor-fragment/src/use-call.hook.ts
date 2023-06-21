@@ -1,8 +1,8 @@
 import { useCallback }     from 'react'
 
+import { useDataRegistry } from '@grpc-playground/data-registry'
 import { useClient }       from '@grpc-playground/proto-registry'
 import { useSchema }       from '@grpc-playground/proto-registry'
-import { useDataRegistry } from '@grpc-playground/data-registry'
 
 export const useCall = (service, method, callback) => {
   const dataRegistry = useDataRegistry()
@@ -10,9 +10,9 @@ export const useCall = (service, method, callback) => {
   const schema = useSchema()
 
   return useCallback(async () => {
-    const { fullName } = schema[service]
+    const { fullName } = schema && schema[service]
 
-    const data = dataRegistry.getServiceMethodData(service, method)
+    const data = dataRegistry?.getServiceMethodData(service, method)
 
     const response = await client.call(fullName, method, data)
 

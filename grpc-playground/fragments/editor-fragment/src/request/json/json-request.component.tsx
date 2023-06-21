@@ -1,12 +1,9 @@
 import React               from 'react'
+import AceEditor           from 'react-ace'
+import { FC }              from 'react'
 import { useEffect }       from 'react'
 import { useState }        from 'react'
 import { useCallback }     from 'react'
-import { FC }              from 'react'
-import AceEditor           from 'react-ace'
-
-import 'ace-builds/src-noconflict/mode-json'
-import 'ace-builds/src-noconflict/theme-textmate'
 
 import { useDataRegistry } from '@grpc-playground/data-registry'
 
@@ -20,8 +17,11 @@ export const JsonRequest: FC<JsonRequestProps> = ({ service, method }) => {
   const dataRegistry = useDataRegistry()
 
   useEffect(() => {
+    import('ace-builds/src-noconflict/mode-json')
+    import('ace-builds/src-noconflict/theme-textmate')
+
     if (service && method) {
-      const data = dataRegistry.getServiceMethodData(service, method)
+      const data = dataRegistry?.getServiceMethodData(service, method)
 
       if (data) {
         setValue(JSON.stringify(data, null, 2))
@@ -34,7 +34,7 @@ export const JsonRequest: FC<JsonRequestProps> = ({ service, method }) => {
       setValue(changed)
 
       try {
-        dataRegistry.setServiceMethodData(service!, method!, JSON.parse(changed))
+        dataRegistry?.setServiceMethodData(service!, method!, JSON.parse(changed))
       } catch {} // eslint-disable-line no-empty
     },
     [service, method, setValue, dataRegistry]
