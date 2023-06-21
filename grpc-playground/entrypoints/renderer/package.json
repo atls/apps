@@ -6,9 +6,9 @@
     "dist/"
   ],
   "scripts": {
-    "build": "yarn next build src --no-lint && cp -r ./src/.next/standalone ./dist && cp -r ./src/.next/static ./dist/.next/static && mv ./dist/server.js ./dist/index.js",
+    "build": "run next build src && run next export src -o dist",
     "dev": "yarn next dev src",
-    "prepack": "run build",
+    "prepack": "run next build src && run next export src -o dist",
     "start": "node dist/index.js"
   },
   "dependencies": {
