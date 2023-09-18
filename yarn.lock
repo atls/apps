@@ -884,23 +884,23 @@ __metadata:
     "@atls-ui-proto/input": "npm:0.0.13"
     "@atls-ui-proto/layout": "npm:0.0.7"
     "@atls-ui-proto/text": "npm:0.0.10"
-    "@emotion/react": "npm:^11.11.1"
-    "@emotion/styled": "npm:^11.11.0"
+    "@emotion/react": "npm:11.11.1"
+    "@emotion/styled": "npm:11.11.0"
     "@grpc-playground/data-registry": "workspace:0.0.1"
     "@grpc-playground/proto-registry": "workspace:0.0.1"
-    "@types/lodash.get": "npm:^4.4.7"
-    "@types/lodash.set": "npm:^4.3.7"
-    "@types/react": "npm:^18.2.21"
-    "@types/react-dom": "npm:^18.2.7"
-    "@types/styled-system": "npm:^5.1.17"
-    ace-builds: "npm:^1.26.0"
-    lodash.get: "npm:^4.4.2"
-    lodash.set: "npm:^4.3.2"
-    protobufjs: "npm:^7.2.5"
-    react: "npm:^18.2.0"
+    "@types/lodash.get": "npm:4.4.7"
+    "@types/lodash.set": "npm:4.3.7"
+    "@types/react": "npm:18.2.21"
+    "@types/react-dom": "npm:18.2.7"
+    "@types/styled-system": "npm:5.1.17"
+    ace-builds: "npm:1.26.0"
+    lodash.get: "npm:4.4.2"
+    lodash.set: "npm:4.3.2"
+    protobufjs: "npm:7.2.5"
+    react: "npm:18.2.0"
     react-ace: "patch:react-ace@npm%3A10.1.0#~/.yarn/patches/react-ace-npm-10.1.0-48bccfeb30.patch"
-    styled-system: "npm:^5.1.5"
-    styled-tools: "npm:^1.7.2"
+    styled-system: "npm:5.1.5"
+    styled-tools: "npm:1.7.2"
   peerDependencies:
     "@emotion/react": "*"
     "@emotion/styled": "*"
@@ -1857,7 +1857,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.get@npm:^4.4.7":
+"@types/lodash.get@npm:4.4.7":
   version: 4.4.7
   resolution: "@types/lodash.get@npm:4.4.7"
   dependencies:
@@ -1866,7 +1866,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.set@npm:^4.3.7":
+"@types/lodash.set@npm:4.3.7":
   version: 4.3.7
   resolution: "@types/lodash.set@npm:4.3.7"
   dependencies:
@@ -2015,7 +2015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-system@npm:^5.1.17":
+"@types/styled-system@npm:5.1.17":
   version: 5.1.17
   resolution: "@types/styled-system@npm:5.1.17"
   dependencies:
@@ -2070,7 +2070,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ace-builds@npm:^1.26.0, ace-builds@npm:^1.4.14":
+"ace-builds@npm:1.26.0, ace-builds@npm:^1.4.14":
   version: 1.26.0
   resolution: "ace-builds@npm:1.26.0"
   checksum: 3b5cf6d85df00925c72e029699c17b74246f29a2f7047dbdbfacba7ba7ee585e6c1ae7b88b0618421486d1ba4c5f9f29044f1baf5b1e42da1060ea5295d6f8c9
@@ -4474,7 +4474,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.get@npm:^4.4.2":
+"lodash.get@npm:4.4.2, lodash.get@npm:^4.4.2":
   version: 4.4.2
   resolution: "lodash.get@npm:4.4.2"
   checksum: 779e6f3d2c59b82cfee2407abe0fb7f2cefb6eda9a23ffd7caa1390ebcd40697a03a46622294a10f99e9fc0197fb844f3c433400d67584d722aa46b606c43590
@@ -4502,7 +4502,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.set@npm:4.3.2, lodash.set@npm:^4.3.2":
+"lodash.set@npm:4.3.2":
   version: 4.3.2
   resolution: "lodash.set@npm:4.3.2"
   checksum: ab96f4cede88b54515e9f694da9e5b6d35b1fbf96c80d1023834d134f167ac9630690f0f1846827d07fcbf9ab622321a80acd5e0617bbb9b37806f48e02cc596
@@ -5257,7 +5257,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:^7.2.5":
+"protobufjs@npm:7.2.5":
   version: 7.2.5
   resolution: "protobufjs@npm:7.2.5"
   dependencies:
@@ -5837,7 +5837,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-tools@npm:1.7.2, styled-tools@npm:^1.7.2":
+"styled-tools@npm:1.7.2":
   version: 1.7.2
   resolution: "styled-tools@npm:1.7.2"
   checksum: 726ba9b48df8bab6c091dc1508c9913e0b793a63a65099bfc28b1b807577fa5914644ba9f07ff49c8b1479d8b857a8877cb942ef5a2033385a87756fd3b3d596
