@@ -4,23 +4,23 @@
   "private": true,
   "main": "src/index.ts",
   "dependencies": {
-    "@atls-ui-parts/layout": "0.0.7",
+    "@atls-ui-parts/layout": "0.0.10",
     "@grpc-playground/data-registry": "workspace:0.0.1",
     "@grpc-playground/editor-fragment": "workspace:0.0.1",
     "@grpc-playground/proto-registry": "workspace:0.0.1",
     "@grpc-playground/sidebar-fragment": "workspace:0.0.1",
     "@grpc-playground/tabs-fragment": "workspace:0.0.1",
-    "history": "5.0.0",
-    "react-router-dom": "6.11.2",
+    "history": "5.3.0",
+    "react-router-dom": "6.16.0",
     "styled-system": "5.1.5",
     "styled-tools": "1.7.2"
   },
   "devDependencies": {
-    "@emotion/react": "11.9.3",
-    "@emotion/styled": "11.9.3",
-    "@types/react": "18.2.13",
-    "@types/react-dom": "18.2.6",
-    "@types/styled-system": "5.1.16",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@types/react": "18.2.22",
+    "@types/react-dom": "18.2.7",
+    "@types/styled-system": "5.1.17",
     "react": "18.2.0"
   },
   "peerDependencies": {
