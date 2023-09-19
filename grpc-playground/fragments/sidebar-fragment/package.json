@@ -4,7 +4,7 @@
   "private": true,
   "main": "src/index.ts",
   "dependencies": {
-    "@atls-ui-proto/layout": "0.0.7",
+    "@atls-ui-proto/layout": "0.0.9",
     "@atls-ui-proto/text": "0.0.12",
     "@grpc-playground/proto-registry": "workspace:0.0.1",
     "history": "5.3.0"

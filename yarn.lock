@@ -1007,7 +1007,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@grpc-playground/sidebar-fragment@workspace:grpc-playground/fragments/sidebar-fragment"
   dependencies:
-    "@atls-ui-proto/layout": "npm:0.0.7"
+    "@atls-ui-proto/layout": "npm:0.0.9"
     "@atls-ui-proto/text": "npm:0.0.12"
     "@emotion/react": "npm:11.11.1"
     "@emotion/styled": "npm:11.11.0"
