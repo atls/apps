@@ -94,6 +94,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atls-ui-parts/layout@npm:0.0.10":
+  version: 0.0.10
+  resolution: "@atls-ui-parts/layout@npm:0.0.10"
+  dependencies:
+    "@emotion/is-prop-valid": "npm:1.2.1"
+  peerDependencies:
+    "@emotion/styled": 11.9.3
+    react: 18.2.0
+    styled-system: 5.1.5
+  checksum: 09199ef8e77db1fdd940d3208d254bb4fe56d9ad3fe97f0ceb0eee71eb537db351fc10bd82de85e86c646095736310f1fdbf6b33c2439f88769889c89e80d841
+  languageName: node
+  linkType: hard
+
 "@atls-ui-parts/layout@npm:0.0.7":
   version: 0.0.7
   resolution: "@atls-ui-parts/layout@npm:0.0.7"
@@ -716,7 +729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^1.1.3, @emotion/is-prop-valid@npm:^1.2.0":
+"@emotion/is-prop-valid@npm:1.2.1, @emotion/is-prop-valid@npm:^1.1.3, @emotion/is-prop-valid@npm:^1.2.0":
   version: 1.2.1
   resolution: "@emotion/is-prop-valid@npm:1.2.1"
   dependencies:
@@ -922,20 +935,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@grpc-playground/index-page@workspace:grpc-playground/pages/index-page"
   dependencies:
-    "@atls-ui-parts/layout": "npm:0.0.7"
-    "@emotion/react": "npm:11.9.3"
-    "@emotion/styled": "npm:11.9.3"
+    "@atls-ui-parts/layout": "npm:0.0.10"
+    "@emotion/react": "npm:11.11.1"
+    "@emotion/styled": "npm:11.11.0"
     "@grpc-playground/data-registry": "workspace:0.0.1"
     "@grpc-playground/editor-fragment": "workspace:0.0.1"
     "@grpc-playground/proto-registry": "workspace:0.0.1"
     "@grpc-playground/sidebar-fragment": "workspace:0.0.1"
     "@grpc-playground/tabs-fragment": "workspace:0.0.1"
-    "@types/react": "npm:18.2.13"
-    "@types/react-dom": "npm:18.2.6"
-    "@types/styled-system": "npm:5.1.16"
-    history: "npm:5.0.0"
+    "@types/react": "npm:18.2.22"
+    "@types/react-dom": "npm:18.2.7"
+    "@types/styled-system": "npm:5.1.17"
+    history: "npm:5.3.0"
     react: "npm:18.2.0"
-    react-router-dom: "npm:6.11.2"
+    react-router-dom: "npm:6.16.0"
     styled-system: "npm:5.1.5"
     styled-tools: "npm:1.7.2"
   peerDependencies:
@@ -1534,6 +1547,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remix-run/router@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@remix-run/router@npm:1.9.0"
+  checksum: 5b3d10c067f75c634d2e7dbbe5e9d541c4b1c24cdffde33e34332d69f0f37fb69f6ca16aa771e0d0fc90c6e19863a14d0d6556a10fdd0c1baa8c2180b0118bea
+  languageName: node
+  linkType: hard
+
 "@sinclair/typebox@npm:^0.24.1":
   version: 0.24.51
   resolution: "@sinclair/typebox@npm:0.24.51"
@@ -2003,15 +2023,6 @@ __metadata:
   version: 2.0.1
   resolution: "@types/stack-utils@npm:2.0.1"
   checksum: a961a1d043517a2b6f7fc326fbce12cd3ba4a8dfc87b63ef2aa7cd991f6a8c7bc87942a51a792c3f922e34e3898d9de3139f2f6636a326a7ec4635389b822bd9
-  languageName: node
-  linkType: hard
-
-"@types/styled-system@npm:5.1.16":
-  version: 5.1.16
-  resolution: "@types/styled-system@npm:5.1.16"
-  dependencies:
-    csstype: "npm:^3.0.2"
-  checksum: f3321df9e0aae12e40687f98d3d3402f6ffc4ca6d8dda57392a2a16f9c7e5bade568468b39f85643f14960731776f82a2276dfe048292889c7389a4b2da40e9f
   languageName: node
   linkType: hard
 
@@ -3504,6 +3515,15 @@ __metadata:
   dependencies:
     "@babel/runtime": "npm:^7.7.6"
   checksum: ab51dd1e982a1eb22c11c36652d6895ccc312fa9d1b2ecc3fc5a23fb132b64b9d9f43b147bfbe7788b967a9c27f4bb39babb3ac7a0365106409be60858aff122
+  languageName: node
+  linkType: hard
+
+"history@npm:5.3.0":
+  version: 5.3.0
+  resolution: "history@npm:5.3.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.6"
+  checksum: 95f5983c15ce77b5e9aea74e604de4f99d2a165e1e743e58a21e202bd978c566444ab2bb914a1ede85cffa5ec91b4b5b8e46d37c8c79abe8810f554e8b84530f
   languageName: node
   linkType: hard
 
@@ -5369,6 +5389,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-router-dom@npm:6.16.0":
+  version: 6.16.0
+  resolution: "react-router-dom@npm:6.16.0"
+  dependencies:
+    "@remix-run/router": "npm:1.9.0"
+    react-router: "npm:6.16.0"
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: c04e6cfaa33d7ea28724a08f6386b8a7a653b7bc73667c1595dbf1527f36b1546b1d33d6b60afdcc8c70241c85c6c0482f945ae60ee89f2d55a66a1a19b649f1
+  languageName: node
+  linkType: hard
+
 "react-router@npm:6.11.2":
   version: 6.11.2
   resolution: "react-router@npm:6.11.2"
@@ -5377,6 +5410,17 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
   checksum: def0b9b47fb2b699101b4980635747960009372668a16daa2537da1f3e62c6a649ff3bf497640b7920e15122c087b875ceb5d535f07fbfc982dde4ac974b89ab
+  languageName: node
+  linkType: hard
+
+"react-router@npm:6.16.0":
+  version: 6.16.0
+  resolution: "react-router@npm:6.16.0"
+  dependencies:
+    "@remix-run/router": "npm:1.9.0"
+  peerDependencies:
+    react: ">=16.8"
+  checksum: abecd1c4792e5953b5533c9dc9102095a556265148438b19dff4145c9a47fbc646e78095d68cd0253976aeb0356e978b15d94c8450aa244e4ad5b0749a86834e
   languageName: node
   linkType: hard
 
