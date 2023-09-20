@@ -141,6 +141,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atls-ui-parts/text@npm:0.0.12":
+  version: 0.0.12
+  resolution: "@atls-ui-parts/text@npm:0.0.12"
+  dependencies:
+    styled-system: "npm:5.1.5"
+  peerDependencies:
+    "@emotion/styled": 11.9.3
+    react: 18.2.0
+  checksum: 21c31585826d3d1bd4f222cb7b09a2fc95f11f4373891f7e39359eb9d607341195fc59f6afe7ceef697110783942720dcc482dfe69cd489034569c9e34413637
+  languageName: node
+  linkType: hard
+
 "@atls-ui-proto/button@npm:0.0.12":
   version: 0.0.12
   resolution: "@atls-ui-proto/button@npm:0.0.12"
@@ -180,12 +192,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atls-ui-proto/layout@npm:0.0.9":
+  version: 0.0.9
+  resolution: "@atls-ui-proto/layout@npm:0.0.9"
+  dependencies:
+    "@atls-ui-parts/layout": "npm:0.0.10"
+  checksum: 07e9aa1292aab3c6d46d010043de2da4c250e9d32d022e61e6d21b210f3da3e7b5e358e10d19a8fb74d682eadae5dd830e4d0c37414042ebdf74a53be91f4fe5
+  languageName: node
+  linkType: hard
+
 "@atls-ui-proto/text@npm:0.0.10":
   version: 0.0.10
   resolution: "@atls-ui-proto/text@npm:0.0.10"
   dependencies:
     "@atls-ui-parts/text": "npm:0.0.10"
   checksum: d94c8c3a61518dd22e01c4c4c696f8ec47c371d3f62d5155fff95b29f3b99298fe601bb1706993f6843b5fff9f3a9930bbef1243c0b411cfb4f43aa8e2c6db2d
+  languageName: node
+  linkType: hard
+
+"@atls-ui-proto/text@npm:0.0.12":
+  version: 0.0.12
+  resolution: "@atls-ui-proto/text@npm:0.0.12"
+  dependencies:
+    "@atls-ui-parts/text": "npm:0.0.12"
+  checksum: 4cdc594f98a404c1008686a09ebb8d0b0b581f4f5c7a03de1c746dc40e3ad2915af2808207cbd3e944d80cd0b3fea3d8e9f1cd544b5f694635d6822c75601a2e
   languageName: node
   linkType: hard
 
@@ -977,14 +1007,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@grpc-playground/sidebar-fragment@workspace:grpc-playground/fragments/sidebar-fragment"
   dependencies:
-    "@atls-ui-proto/layout": "npm:0.0.7"
-    "@atls-ui-proto/text": "npm:0.0.10"
-    "@emotion/react": "npm:11.9.3"
-    "@emotion/styled": "npm:11.9.3"
+    "@atls-ui-proto/layout": "npm:0.0.9"
+    "@atls-ui-proto/text": "npm:0.0.12"
+    "@emotion/react": "npm:11.11.1"
+    "@emotion/styled": "npm:11.11.0"
     "@grpc-playground/proto-registry": "workspace:0.0.1"
-    history: "npm:5.0.0"
+    history: "npm:5.3.0"
     react: "npm:18.2.0"
-    react-router-dom: "npm:6.11.2"
+    react-router-dom: "npm:6.16.0"
     styled-system: "npm:5.1.5"
     styled-tools: "npm:1.7.2"
   peerDependencies:
@@ -1001,14 +1031,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@grpc-playground/tabs-fragment@workspace:grpc-playground/fragments/tabs-fragment"
   dependencies:
-    "@atls-ui-proto/layout": "npm:0.0.7"
-    "@atls-ui-proto/text": "npm:0.0.10"
-    "@emotion/react": "npm:11.9.3"
-    "@emotion/styled": "npm:11.9.3"
+    "@atls-ui-proto/layout": "npm:0.0.9"
+    "@atls-ui-proto/text": "npm:0.0.12"
+    "@emotion/react": "npm:11.11.1"
+    "@emotion/styled": "npm:11.11.0"
     "@grpc-playground/proto-registry": "workspace:0.0.1"
-    history: "npm:5.0.0"
+    history: "npm:5.3.0"
     react: "npm:18.2.0"
-    react-router-dom: "npm:6.11.2"
+    react-router-dom: "npm:6.16.0"
     styled-system: "npm:5.1.5"
     styled-tools: "npm:1.7.2"
   peerDependencies:
