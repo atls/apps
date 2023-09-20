@@ -5406,19 +5406,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:6.11.2":
-  version: 6.11.2
-  resolution: "react-router-dom@npm:6.11.2"
-  dependencies:
-    "@remix-run/router": "npm:1.6.2"
-    react-router: "npm:6.11.2"
-  peerDependencies:
-    react: ">=16.8"
-    react-dom: ">=16.8"
-  checksum: 3d0a845e615067897b5d76c5584e7907ec683e22699c3bc8ba2b29012bc7605e81886308ff151d7ef9e93ccca930a9f11e3797d8ab1d3b025bd0c9830e151791
-  languageName: node
-  linkType: hard
-
 "react-router-dom@npm:6.16.0":
   version: 6.16.0
   resolution: "react-router-dom@npm:6.16.0"
