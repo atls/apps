@@ -176,13 +176,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-proto/theme@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@atls-ui-proto/theme@npm:0.0.9"
+"@atls-ui-proto/theme@npm:^0.0.14":
+  version: 0.0.14
+  resolution: "@atls-ui-proto/theme@npm:0.0.14"
   peerDependencies:
-    "@emotion/react": ^11.1.5
-    react: ^17.0.1
-  checksum: 27425bcd97c7be38d8c296ff6d37f9e0e9d610cc4b8bf28cdc4eb754f6a3f0635904d00f58ae9fd160279b015b350eaf98e293f8227414f24be7a64d1413f063
+    "@emotion/css": 11.9.0
+    "@emotion/react": 11.9.3
+    react: 18.2.0
+  checksum: 8c78a7e3b6928250e1127c11d293703ff029795f8604f68601470dd182db02f9e5e2a0a920b7dcc0b376a2ba4cbbf5c5e61df74bda3720a4c2a1b39d3368eb47
   languageName: node
   linkType: hard
 
@@ -217,21 +218,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/grpc-playground-app@workspace:grpc-playground/entrypoints/renderer"
   dependencies:
-    "@atls-ui-proto/theme": "npm:0.0.9"
-    "@emotion/react": "npm:11.9.3"
-    "@emotion/styled": "npm:11.9.3"
+    "@atls-ui-proto/theme": "npm:^0.0.14"
+    "@emotion/react": "npm:11.11.1"
+    "@emotion/styled": "npm:11.11.0"
     "@grpc-playground/index-page": "workspace:0.0.1"
     "@types/events": "npm:3.0.0"
-    "@types/express": "npm:4.17.13"
-    "@types/node": "npm:17.0.45"
-    "@types/react": "npm:18.2.13"
-    "@types/react-dom": "npm:18.2.6"
+    "@types/express": "npm:4.17.17"
+    "@types/node": "npm:20.6.3"
+    "@types/react": "npm:18.2.22"
+    "@types/react-dom": "npm:18.2.7"
     events: "npm:3.3.0"
-    history: "npm:5.0.0"
+    history: "npm:5.3.0"
     next: "npm:12.3.4"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
-    react-router: "npm:6.11.2"
+    react-router: "npm:6.16.0"
     typescript: "npm:4.6.2"
   languageName: unknown
   linkType: soft
@@ -716,7 +717,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^1.1.3, @emotion/is-prop-valid@npm:^1.2.0":
+"@emotion/is-prop-valid@npm:^1.1.3, @emotion/is-prop-valid@npm:^1.2.0, @emotion/is-prop-valid@npm:^1.2.1":
   version: 1.2.1
   resolution: "@emotion/is-prop-valid@npm:1.2.1"
   dependencies:
@@ -750,6 +751,27 @@ __metadata:
   version: 0.8.1
   resolution: "@emotion/memoize@npm:0.8.1"
   checksum: f9129e5c6d0fe36572c60eaa58fa7ca882f538440d9332d5f12a15aec8348095cdfd25092ee1af16b4bc55767aca56728411c26e2b0b3725e663039b842d3533
+  languageName: node
+  linkType: hard
+
+"@emotion/react@npm:*, @emotion/react@npm:11.11.1":
+  version: 11.11.1
+  resolution: "@emotion/react@npm:11.11.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.18.3"
+    "@emotion/babel-plugin": "npm:^11.11.0"
+    "@emotion/cache": "npm:^11.11.0"
+    "@emotion/serialize": "npm:^1.1.2"
+    "@emotion/use-insertion-effect-with-fallbacks": "npm:^1.0.1"
+    "@emotion/utils": "npm:^1.2.1"
+    "@emotion/weak-memoize": "npm:^0.3.1"
+    hoist-non-react-statics: "npm:^3.3.1"
+  peerDependencies:
+    react: ">=16.8.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: beae1f42b138566242655f6c13a3b0a2301c0fa6ed7de09ad272dad8d7cedcab4d69d0314ca51a485342345f07ab6ebca74f2aac69cbe24cc9de552e7915d30a
   languageName: node
   linkType: hard
 
@@ -796,6 +818,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/styled@npm:*, @emotion/styled@npm:11.11.0":
+  version: 11.11.0
+  resolution: "@emotion/styled@npm:11.11.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.18.3"
+    "@emotion/babel-plugin": "npm:^11.11.0"
+    "@emotion/is-prop-valid": "npm:^1.2.1"
+    "@emotion/serialize": "npm:^1.1.2"
+    "@emotion/use-insertion-effect-with-fallbacks": "npm:^1.0.1"
+    "@emotion/utils": "npm:^1.2.1"
+  peerDependencies:
+    "@emotion/react": ^11.0.0-rc.0
+    react: ">=16.8.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 3433979aad4515933563dc2f14c98802d33b771b5269d989f15f9d2458f0adc0235465a06d27bf51528d4e1d653ec57f8d0e0ecb50e58b39e72afe5a234170ed
+  languageName: node
+  linkType: hard
+
 "@emotion/styled@npm:11.9.3":
   version: 11.9.3
   resolution: "@emotion/styled@npm:11.9.3"
@@ -822,6 +864,15 @@ __metadata:
   version: 0.8.1
   resolution: "@emotion/unitless@npm:0.8.1"
   checksum: 6f28915658918cb969acb612c592490b012e7b1a894a232411147f4c810cc4667053479ef126d7deeab589fa4fa0f3b11b0a79e2f40447d550292cc7a6cc591b
+  languageName: node
+  linkType: hard
+
+"@emotion/use-insertion-effect-with-fallbacks@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@emotion/use-insertion-effect-with-fallbacks@npm:1.0.1"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 757b7a88000de88dc29e349c1d7d04f49aadf8cb3d5066b99ceb8201e4c3c12db9caf08df7b35ca3a7ca88dbe5a44872d8b7d6326838682cbc2d1b7ca5be4344
   languageName: node
   linkType: hard
 
@@ -1534,6 +1585,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remix-run/router@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@remix-run/router@npm:1.9.0"
+  checksum: 5b3d10c067f75c634d2e7dbbe5e9d541c4b1c24cdffde33e34332d69f0f37fb69f6ca16aa771e0d0fc90c6e19863a14d0d6556a10fdd0c1baa8c2180b0118bea
+  languageName: node
+  linkType: hard
+
 "@sinclair/typebox@npm:^0.24.1":
   version: 0.24.51
   resolution: "@sinclair/typebox@npm:0.24.51"
@@ -1758,7 +1816,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8":
+"@types/eslint@npm:8.40.2":
   version: 8.40.2
   resolution: "@types/eslint@npm:8.40.2"
   dependencies:
@@ -1782,27 +1840,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express-serve-static-core@npm:^4.17.18":
-  version: 4.17.35
-  resolution: "@types/express-serve-static-core@npm:4.17.35"
+"@types/express-serve-static-core@npm:^4.17.33":
+  version: 4.17.36
+  resolution: "@types/express-serve-static-core@npm:4.17.36"
   dependencies:
     "@types/node": "npm:*"
     "@types/qs": "npm:*"
     "@types/range-parser": "npm:*"
     "@types/send": "npm:*"
-  checksum: 20d48d5792a35342571dd709bbb1c5bf2d2ae1b833c01b89a89a8ebd92092986ae966f054a285962eb71f97449bfb7642cb15c987bb9713a393a44b1165de1df
+  checksum: e39c5a8c22dec0227a346b5b43fd8d47c5257f269cadeffd58555517975774bd7f60a7087c31006ea8c994fd9b7f3f55945179218cbce594c05c6a0b303eb412
   languageName: node
   linkType: hard
 
-"@types/express@npm:4.17.13":
-  version: 4.17.13
-  resolution: "@types/express@npm:4.17.13"
+"@types/express@npm:4.17.17":
+  version: 4.17.17
+  resolution: "@types/express@npm:4.17.17"
   dependencies:
     "@types/body-parser": "npm:*"
-    "@types/express-serve-static-core": "npm:^4.17.18"
+    "@types/express-serve-static-core": "npm:^4.17.33"
     "@types/qs": "npm:*"
     "@types/serve-static": "npm:*"
-  checksum: 114a3b85cd27a5d7873321499d4af2e8964d4f1a6344b224555d356be2d90e8024cba0dcf1159c30a8d39d8cb8312dff85b1a79a23c139122879499c568ac06e
+  checksum: 79fc9a17e54bf87b12ed65003fae24bf9b32b1bd8964bdfbab37cd3e53e0e4d596f293aa2f0ab1ed7c6a18dee033019e06461a5ce416904515bf764cdbf7d85f
   languageName: node
   linkType: hard
 
@@ -1914,6 +1972,13 @@ __metadata:
   version: 17.0.45
   resolution: "@types/node@npm:17.0.45"
   checksum: c0e9a6e94e1d37dd9ccb6be305f9a1500968624a58c93bc3cbffaebcebcb6774add768db664e74867d99185c7a66e00fb12df6185d4e46bde170159ef0990071
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.6.3":
+  version: 20.6.3
+  resolution: "@types/node@npm:20.6.3"
+  checksum: 1f1f2d71e3863363ed672d83dbfb84147d7c0e3d884707a34b322a15477c2f27f9cf80336f44f5ff6c60472cfa42668bc07a18d8368b09c208d466b4b243d23c
   languageName: node
   linkType: hard
 
@@ -3504,6 +3569,15 @@ __metadata:
   dependencies:
     "@babel/runtime": "npm:^7.7.6"
   checksum: ab51dd1e982a1eb22c11c36652d6895ccc312fa9d1b2ecc3fc5a23fb132b64b9d9f43b147bfbe7788b967a9c27f4bb39babb3ac7a0365106409be60858aff122
+  languageName: node
+  linkType: hard
+
+"history@npm:5.3.0":
+  version: 5.3.0
+  resolution: "history@npm:5.3.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.6"
+  checksum: 95f5983c15ce77b5e9aea74e604de4f99d2a165e1e743e58a21e202bd978c566444ab2bb914a1ede85cffa5ec91b4b5b8e46d37c8c79abe8810f554e8b84530f
   languageName: node
   linkType: hard
 
@@ -5330,7 +5404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18":
+"react-dom@npm:18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -5380,7 +5454,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18":
+"react-router@npm:6.16.0":
+  version: 6.16.0
+  resolution: "react-router@npm:6.16.0"
+  dependencies:
+    "@remix-run/router": "npm:1.9.0"
+  peerDependencies:
+    react: ">=16.8"
+  checksum: abecd1c4792e5953b5533c9dc9102095a556265148438b19dff4145c9a47fbc646e78095d68cd0253976aeb0356e978b15d94c8450aa244e4ad5b0749a86834e
+  languageName: node
+  linkType: hard
+
+"react@npm:*, react@npm:18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
