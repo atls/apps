@@ -176,7 +176,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-proto/theme@npm:^0.0.14":
+"@atls-ui-proto/theme@npm:0.0.14":
   version: 0.0.14
   resolution: "@atls-ui-proto/theme@npm:0.0.14"
   peerDependencies:
@@ -218,7 +218,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/grpc-playground-app@workspace:grpc-playground/entrypoints/renderer"
   dependencies:
-    "@atls-ui-proto/theme": "npm:^0.0.14"
+    "@atls-ui-proto/theme": "npm:0.0.14"
     "@emotion/react": "npm:11.11.1"
     "@emotion/styled": "npm:11.11.0"
     "@grpc-playground/index-page": "workspace:0.0.1"

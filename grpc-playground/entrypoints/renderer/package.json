@@ -20,7 +20,7 @@
     "react-router": "6.16.0"
   },
   "devDependencies": {
-    "@atls-ui-proto/theme": "^0.0.14",
+    "@atls-ui-proto/theme": "0.0.14",
     "@grpc-playground/index-page": "workspace:0.0.1",
     "@types/events": "3.0.0",
     "@types/express": "4.17.17",
