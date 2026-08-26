@@ -24,10 +24,62 @@ jobs:
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Npm Publish
+      - name: Resolve publish set
+        id: publish_set
         run: |
-          yarn version apply --all
-          yarn workspaces changed foreach --verbose --topological --no-private npm publish --access public
+          set -euo pipefail
+
+          release_candidates="$RUNNER_TEMP/release-candidates"
+          publish_workspaces="$RUNNER_TEMP/publish-workspaces"
+
+          yarn version apply --all --dry-run --json |
+            jq --raw-output --slurp \
+              'map(if (.ident | type) == "string" then .ident else error("Yarn version plan entry is missing an ident") end)[]' \
+              > "$release_candidates"
+
+          : > "$publish_workspaces"
+
+          if [[ -s "$release_candidates" ]]; then
+            include_args=()
+
+            while IFS= read -r workspace; do
+              include_args+=(--include "$workspace")
+            done < "$release_candidates"
+
+            PUBLISH_WORKSPACES="$publish_workspaces" yarn workspaces foreach \
+              --all \
+              --no-private \
+              "${include_args[@]}" \
+              exec sh -c "printenv npm_package_name >> \"\$PUBLISH_WORKSPACES\""
+          fi
+
+          if [[ -s "$publish_workspaces" ]]; then
+            echo 'has_workspaces=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'has_workspaces=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Apply versions
+        run: yarn version apply --all
+
+      - name: Npm Publish
+        if: steps.publish_set.outputs.has_workspaces == 'true'
+        run: |
+          set -euo pipefail
+
+          include_args=()
+
+          while IFS= read -r workspace; do
+            include_args+=(--include "$workspace")
+          done < "$RUNNER_TEMP/publish-workspaces"
+
+          yarn workspaces foreach \
+            --all \
+            --verbose \
+            --topological \
+            --no-private \
+            "${include_args[@]}" \
+            npm publish --access public
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
