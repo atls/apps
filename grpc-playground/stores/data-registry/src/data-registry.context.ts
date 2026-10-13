@@ -1,6 +1,6 @@
-import { createContext } from 'react'
+import type { DataRegistry } from './data.registry'
 
-import { DataRegistry }  from './data.registry'
+import { createContext }     from 'react'
 
 export const Context = createContext<DataRegistry | null>(null)
 

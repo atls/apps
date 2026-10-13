@@ -2,28 +2,41 @@ import { Input }    from '@atls-ui-proto/input'
 import { Column }   from '@atls-ui-proto/layout'
 import { Layout }   from '@atls-ui-proto/layout'
 import { Text }     from '@atls-ui-proto/text'
-
 import React        from 'react'
 
 import { useField } from '../form'
 
-const Control = ({ type, value, onChange, ...props }) => {
+interface ControlProps {
+  type: 'checkbox' | 'number' | 'text'
+  value: unknown
+  onChange: (value: unknown) => void
+}
+
+const Control = ({ type, value, onChange }: ControlProps) => {
   if (type === 'checkbox') {
     return (
       <input
-        {...props}
         type={type}
-        value={value}
-        checked={value}
-        onChange={() => onChange(!value)}
+        checked={Boolean(value)}
+        onChange={() => {
+          onChange(!value)
+        }}
       />
     )
   }
 
-  return <Input {...props} type={type} size='small' value={value} onChange={onChange} />
+  const inputValue = typeof value === 'string' || typeof value === 'number' ? value : ''
+
+  return <Input type={type} size='small' value={inputValue} onChange={onChange} />
 }
 
-export const InputField = ({ type = 'text', name, path }) => {
+interface InputFieldProps {
+  type?: ControlProps['type']
+  name: string
+  path: Array<string>
+}
+
+export const InputField = ({ type = 'text', name, path }: InputFieldProps) => {
   const [value, onChange] = useField(path)
 
   return (

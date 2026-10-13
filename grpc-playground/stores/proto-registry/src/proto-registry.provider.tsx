@@ -1,10 +1,11 @@
-import React                 from 'react'
-import { PropsWithChildren } from 'react'
-import { useMemo }           from 'react'
-import { useEffect }         from 'react'
+import type { PropsWithChildren } from 'react'
 
-import { Provider }          from './proto-registry.context'
-import { ProtoRegistry }     from './proto.registry'
+import { useMemo }                from 'react'
+import { useEffect }              from 'react'
+import React                      from 'react'
+
+import { Provider }               from './proto-registry.context'
+import { ProtoRegistry }          from './proto.registry'
 
 export interface ProtoRegistryProviderProps {
   url?: string

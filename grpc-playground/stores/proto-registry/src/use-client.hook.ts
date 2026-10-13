@@ -1,7 +1,7 @@
-import { useContext }    from 'react'
+import type { ProtoRegistry } from './proto.registry'
 
-import { Context }       from './proto-registry.context'
-import { ProtoRegistry } from './proto.registry'
+import { useContext }         from 'react'
 
-// @ts-ignore
-export const useClient = () => useContext<ProtoRegistry | null>(Context).client
+import { Context }            from './proto-registry.context'
+
+export const useClient = (): ProtoRegistry['client'] => useContext(Context)!.client

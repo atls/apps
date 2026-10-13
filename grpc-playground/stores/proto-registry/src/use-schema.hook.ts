@@ -9,7 +9,9 @@ export const useSchema = () => {
   const [schema, setSchema] = useState(registry?.getSchema())
 
   useEffect(() => {
-    const onLoad = () => setSchema(registry?.getSchema())
+    const onLoad = () => {
+      setSchema(registry?.getSchema())
+    }
 
     registry?.on('load', onLoad)
 

@@ -1,9 +1,10 @@
-import React               from 'react'
-import AceEditor           from 'react-ace'
-import { FC }              from 'react'
+import type { FC }         from 'react'
+
 import { useEffect }       from 'react'
 import { useState }        from 'react'
 import { useCallback }     from 'react'
+import React               from 'react'
+import AceEditor           from 'react-ace'
 
 import { useDataRegistry } from '@grpc-playground/data-registry'
 
@@ -30,11 +31,21 @@ export const JsonRequest: FC<JsonRequestProps> = ({ service, method }) => {
   }, [service, method, setValue, dataRegistry])
 
   const onChangeValue = useCallback(
-    (changed) => {
+    (changed: string) => {
       setValue(changed)
 
       try {
-        dataRegistry?.setServiceMethodData(service!, method!, JSON.parse(changed))
+        const parsed: unknown = JSON.parse(changed)
+
+        if (
+          service &&
+          method &&
+          parsed !== null &&
+          typeof parsed === 'object' &&
+          !Array.isArray(parsed)
+        ) {
+          dataRegistry?.setServiceMethodData(service, method, parsed as Record<string, unknown>)
+        }
       } catch {} // eslint-disable-line no-empty
     },
     [service, method, setValue, dataRegistry]
@@ -50,16 +61,16 @@ export const JsonRequest: FC<JsonRequestProps> = ({ service, method }) => {
       name='request'
       fontSize={13}
       cursorStart={2}
-      onChange={onChangeValue}
       showPrintMargin={false}
       showGutter
       highlightActiveLine={false}
       value={value}
+      tabSize={2}
       setOptions={{
         useWorker: false,
         displayIndentGuides: true,
       }}
-      tabSize={2}
+      onChange={onChangeValue}
     />
   )
 }

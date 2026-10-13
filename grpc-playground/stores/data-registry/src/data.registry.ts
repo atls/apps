@@ -1,18 +1,18 @@
-import { EventEmitter }    from 'events'
+import type { Root }       from 'protobufjs'
+
+import { EventEmitter }    from 'events/'
 
 import { walkServices }    from '@grpc-playground/proto-registry'
 import { buildTypeFields } from '@grpc-playground/proto-registry'
 
 import { getSchemaData }   from './schema.utils'
 
-export interface ServiceMethodData {
-  [key: string]: ServiceMethodData | any
-}
+export type ServiceMethodData = Record<string, unknown>
 
 export class DataRegistry extends EventEmitter {
   private data: Map<string, Map<string, ServiceMethodData>> = new Map()
 
-  load(root) {
+  load(root: Root) {
     walkServices(root, (service, name, fullName) => {
       Object.keys(service.methods).forEach((method) => {
         const messageType = root.lookupType(service.methods[method].requestType)

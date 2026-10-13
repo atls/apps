@@ -5,11 +5,16 @@
   "main": "src/index.ts",
   "dependencies": {
     "@grpc-playground/grpc-http-proxy-client": "workspace:0.0.1",
+    "events": "3.3.0",
     "lodash.set": "4.3.2",
     "protobufjs": "7.2.5",
     "uuid": "9.0.1"
   },
   "devDependencies": {
+    "@types/events": "3.0.0",
+    "@types/lodash.set": "4.3.7",
+    "@types/node": "24.19.1",
+    "@types/react": "18.2.22",
     "@types/uuid": "9.0.4",
     "react": "18.2.0"
   },

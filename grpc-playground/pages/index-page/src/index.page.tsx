@@ -2,10 +2,9 @@ import { Column }                from '@atls-ui-parts/layout'
 import { Row }                   from '@atls-ui-parts/layout'
 import { Box }                   from '@atls-ui-parts/layout'
 import { Layout }                from '@atls-ui-parts/layout'
-
-import React                     from 'react'
 import { HashRouter }            from 'react-router-dom'
 import { useMatch }              from 'react-router-dom'
+import React                     from 'react'
 
 import { DataRegistryProvider }  from '@grpc-playground/data-registry'
 import { Editor }                from '@grpc-playground/editor-fragment'

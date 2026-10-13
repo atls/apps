@@ -19,7 +19,11 @@ const getDefaultUrl = () => {
 export class GrpcHttpProxyClient {
   constructor(private readonly url: string = getDefaultUrl()) {}
 
-  async call(service: string, method: string, payload) {
+  async call<Response = unknown>(
+    service: string,
+    method: string,
+    payload: unknown
+  ): Promise<Response> {
     const response = await fetch(`${this.url}/grpc-proxy/${service}/${method}`, {
       method: 'POST',
       headers: {
@@ -28,6 +32,8 @@ export class GrpcHttpProxyClient {
       body: JSON.stringify(payload),
     })
 
-    return BJSON.parse(await response.text())
+    const result: unknown = BJSON.parse(await response.text())
+
+    return result as Response
   }
 }

@@ -1,14 +1,18 @@
-import { useEffect }       from 'react'
-import { useState }        from 'react'
+import type { PropsWithChildren } from 'react'
 
-import { useDataRegistry } from '@grpc-playground/data-registry'
+import { useEffect }              from 'react'
+import { useState }               from 'react'
 
-export const LoadingState = ({ children }) => {
+import { useDataRegistry }        from '@grpc-playground/data-registry'
+
+export const LoadingState = ({ children }: PropsWithChildren) => {
   const [loaded, setLoaded] = useState(false)
   const dataRegistry = useDataRegistry()
 
   useEffect(() => {
-    const onLoad = () => setLoaded(true)
+    const onLoad = () => {
+      setLoaded(true)
+    }
 
     dataRegistry?.on('load', onLoad)
 

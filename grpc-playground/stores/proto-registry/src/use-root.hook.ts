@@ -1,4 +1,5 @@
-import { Root }       from 'protobufjs'
+import type { Root }  from 'protobufjs'
+
 import { useContext } from 'react'
 import { useEffect }  from 'react'
 import { useState }   from 'react'
@@ -10,7 +11,9 @@ export const useRoot = (): Root | null | undefined => {
   const [root, setRoot] = useState<Root | null | undefined>(registry?.getRoot())
 
   useEffect(() => {
-    const onLoad = () => setRoot(registry?.getRoot())
+    const onLoad = () => {
+      setRoot(registry?.getRoot())
+    }
 
     registry?.on('load', onLoad)
 

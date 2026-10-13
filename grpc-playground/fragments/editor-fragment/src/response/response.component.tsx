@@ -1,11 +1,12 @@
-import React         from 'react'
-import AceEditor     from 'react-ace'
-import { FC }        from 'react'
+import type { FC }   from 'react'
+
 import { useEffect } from 'react'
 import { useMemo }   from 'react'
+import React         from 'react'
+import AceEditor     from 'react-ace'
 
 export interface ResponseProps {
-  data: any
+  data: unknown
 }
 
 export const Response: FC<ResponseProps> = ({ data = {} }) => {
@@ -31,11 +32,11 @@ export const Response: FC<ResponseProps> = ({ data = {} }) => {
       highlightActiveLine={false}
       value={value}
       readOnly
+      tabSize={2}
       setOptions={{
         useWorker: false,
         displayIndentGuides: true,
       }}
-      tabSize={2}
     />
   )
 }
