@@ -1,6 +1,4 @@
-export interface FormData {
-  [key: string]: FormData | any
-}
+export type FormData = Record<string, unknown>
 
 export interface FormProps {
   onChange: (data: FormData) => void

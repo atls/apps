@@ -1,7 +1,7 @@
-import { createContext } from 'react'
+import type { FormStore } from './form.store'
 
-import { FormStore }     from './form.store'
+import { createContext }  from 'react'
 
-export const Context = createContext(FormStore.create({}))
+export const Context = createContext<FormStore | null>(null)
 
 export const { Provider, Consumer } = Context

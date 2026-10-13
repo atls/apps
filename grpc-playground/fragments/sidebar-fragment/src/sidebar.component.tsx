@@ -1,15 +1,14 @@
 import { Column }    from '@atls-ui-proto/layout'
 import { Layout }    from '@atls-ui-proto/layout'
 import { Text }      from '@atls-ui-proto/text'
-
-import React         from 'react'
 import { Link }      from 'react-router-dom'
 import { useMatch }  from 'react-router-dom'
+import React         from 'react'
 
 import { useSchema } from '@grpc-playground/proto-registry'
 
 export const Sidebar = () => {
-  const { params } = useMatch('/:service/:method') || {}
+  const match = useMatch('/:service/:method')
   const schema = useSchema()
 
   return (
@@ -28,7 +27,9 @@ export const Sidebar = () => {
                     to={`/${service}/${method}`}
                     style={{ textDecoration: 'none' }}
                     fontWeight={
-                      params?.service === service && params?.method === method ? 600 : 400
+                      match?.params.service === service && match.params.method === method
+                        ? 600
+                        : 400
                     }
                   >
                     {method}

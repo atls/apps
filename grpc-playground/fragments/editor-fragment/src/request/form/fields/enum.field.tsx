@@ -1,15 +1,22 @@
-import React        from 'react'
+import type { Enum } from 'protobufjs'
 
-import { useField } from '../form'
+import React         from 'react'
 
-export const EnumField = ({ field, path = [] }) => {
+import { useField }  from '../form'
+
+interface EnumFieldProps {
+  field: Enum
+  path: Array<string>
+}
+
+export const EnumField = ({ field, path }: EnumFieldProps) => {
   const [value, onChange] = useField(path)
 
   return (
     <div style={{ padding: '16px 16px' }}>
       <select onChange={onChange}>
         {Object.keys(field.values).map((label) => (
-          <option value={field.values[label]} selected={field.values[label] === value}>
+          <option key={label} value={field.values[label]} selected={field.values[label] === value}>
             {label}
           </option>
         ))}

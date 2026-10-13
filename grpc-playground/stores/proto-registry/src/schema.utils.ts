@@ -1,125 +1,14 @@
-/* eslint-disable */
+import type { Field }   from 'protobufjs'
+import type { Service } from 'protobufjs'
 
-import { Type }       from 'protobufjs'
-import { Enum }       from 'protobufjs'
-import { MapField }   from 'protobufjs'
-import { v4 as uuid } from 'uuid'
+import { Enum }         from 'protobufjs'
+import { MapField }     from 'protobufjs'
+import { Type }         from 'protobufjs'
+import { v4 as uuid }   from 'uuid'
 
 const MAX_STACK_SIZE = 3
 
-export const buildServiceMethods = (service, type = 0) => {
-  const root = service.root
-  const serviceMethods = service.methods
-
-  // @ts-ignore
-  return Object.keys(serviceMethods).reduce((methods, method) => {
-    const serviceMethod = serviceMethods[method]
-
-    const methodMessageType = type === 0 ? serviceMethod.requestType : serviceMethod.responseType
-    const messageType = root.lookupType(methodMessageType)
-
-    methods[method] = {
-      name: method,
-      input: buildTypeFields(messageType),
-    }
-
-    return methods
-  }, {})
-}
-
-export const buildTypeFields = (type, stackDepth = {}) => {
-  if (stackDepth[type.name] > MAX_STACK_SIZE) {
-    return {}
-  }
-
-  if (!stackDepth[type.name]) {
-    stackDepth[type.name] = 0
-  }
-
-  stackDepth[type.name]++
-
-  return type.fieldsArray.reduce((data, field) => {
-    field.resolve()
-    if (field.parent !== field.resolvedType) {
-      if (field.repeated) {
-        data[field.name] = [buildField(field, stackDepth)]
-      } else {
-        data[field.name] = buildField(field, stackDepth)
-      }
-    }
-    return data
-  }, {})
-}
-
-export const buildField = (field, stackDepth = {}) => {
-  if (field instanceof MapField) {
-    let mockPropertyValue: null | any = null
-
-    if (field.resolvedType === null) {
-      mockPropertyValue = buildScalarValue(field.type, field.name)
-    }
-
-    if (mockPropertyValue === null) {
-      const resolvedType = field.resolvedType
-
-      if (resolvedType instanceof Type) {
-        if (resolvedType.oneofs) {
-          mockPropertyValue = pickOneOf(resolvedType.oneofsArray)
-        } else {
-          mockPropertyValue = buildTypeFields(resolvedType)
-        }
-      } else if (resolvedType instanceof Enum) {
-        mockPropertyValue = buildEnum(resolvedType)
-      } else if (resolvedType === null) {
-        mockPropertyValue = {}
-      }
-    }
-
-    return {
-      [buildScalarValue(field.keyType, field.name) as any]: mockPropertyValue,
-    }
-  }
-
-  if (field.resolvedType instanceof Type) {
-    return buildTypeFields(field.resolvedType, stackDepth)
-  }
-
-  if (field.resolvedType instanceof Enum) {
-    return buildEnum(field.resolvedType)
-  }
-
-  const mockPropertyValue = buildScalar(field)
-
-  if (mockPropertyValue === null) {
-    const resolvedField = field.resolve()
-    return buildField(resolvedField, stackDepth)
-  } else {
-    return mockPropertyValue
-  }
-}
-
-export const buildEnum = (enumType) => {
-  const enumKey = Object.keys(enumType.values)[0]
-
-  return {
-    value: enumType.values[enumKey],
-  }
-}
-
-export const pickOneOf = (oneofs) =>
-  oneofs.reduce((fields, oneOf) => {
-    fields[oneOf.name] = buildField(oneOf.fieldsArray[0])
-    return fields
-  }, {})
-
-export const buildScalar = (field) => {
-  return {
-    ...field,
-    value: buildScalarValue(field.type, field.name),
-  }
-}
-
-export const interpretMockViaFieldName = (fieldName) => {
+export const interpretMockViaFieldName = (fieldName: string): string => {
   const fieldNameLower = fieldName.toLowerCase()
 
   if (fieldNameLower.startsWith('id') || fieldNameLower.endsWith('id')) {
@@ -129,7 +18,7 @@ export const interpretMockViaFieldName = (fieldName) => {
   return 'Hello'
 }
 
-export const buildScalarValue = (type, fieldName) => {
+export const buildScalarValue = (type: string, fieldName: string) => {
   switch (type) {
     case 'string':
       return interpretMockViaFieldName(fieldName)
@@ -162,9 +51,97 @@ export const buildScalarValue = (type, fieldName) => {
     case 'float':
       return 1.1
     case 'bytes':
-      // @ts-ignore
-      return new TextEncoder('utf-8').encode('Hello')
+      return new TextEncoder().encode('Hello')
     default:
       return null
   }
+}
+
+export const buildEnum = (enumType: Enum) => {
+  const [enumKey] = Object.keys(enumType.values)
+
+  return { value: enumType.values[enumKey] }
+}
+
+export const buildScalar = (field: Field) => ({
+  ...field,
+  value: buildScalarValue(field.type, field.name),
+})
+
+export const buildTypeFields = (
+  type: Type,
+  stackDepth: Record<string, number> = {}
+): Record<string, unknown> => {
+  if ((stackDepth[type.name] ?? 0) > MAX_STACK_SIZE) {
+    return {}
+  }
+
+  stackDepth[type.name] = (stackDepth[type.name] ?? 0) + 1
+
+  const buildField = (field: Field): unknown => {
+    if (field instanceof MapField) {
+      const { resolvedType } = field
+      let mockPropertyValue: unknown = null
+
+      if (resolvedType === null) {
+        mockPropertyValue = buildScalarValue(field.type, field.name)
+      }
+
+      if (mockPropertyValue === null) {
+        if (resolvedType instanceof Type) {
+          mockPropertyValue =
+            resolvedType.oneofsArray.length > 0
+              ? resolvedType.oneofsArray.reduce<Record<string, unknown>>((fields, oneOf) => {
+                  fields[oneOf.name] = buildField(oneOf.fieldsArray[0])
+                  return fields
+                }, {})
+              : buildTypeFields(resolvedType, stackDepth)
+        } else if (resolvedType instanceof Enum) {
+          mockPropertyValue = buildEnum(resolvedType)
+        } else {
+          mockPropertyValue = {}
+        }
+      }
+
+      return { [String(buildScalarValue(field.keyType, field.name))]: mockPropertyValue }
+    }
+
+    if (field.resolvedType instanceof Type) {
+      return buildTypeFields(field.resolvedType, stackDepth)
+    }
+
+    if (field.resolvedType instanceof Enum) {
+      return buildEnum(field.resolvedType)
+    }
+
+    return buildScalar(field)
+  }
+
+  return type.fieldsArray.reduce<Record<string, unknown>>((data, field) => {
+    field.resolve()
+
+    if (field.parent !== field.resolvedType) {
+      data[field.name] = field.repeated ? [buildField(field)] : buildField(field)
+    }
+
+    return data
+  }, {})
+}
+
+export const buildServiceMethods = (service: Service, type = 0) => {
+  const { root, methods: serviceMethods } = service
+
+  return Object.keys(serviceMethods).reduce<
+    Record<string, { name: string; input: Record<string, unknown> }>
+  >((methods, method) => {
+    const serviceMethod = serviceMethods[method]
+    const methodMessageType = type === 0 ? serviceMethod.requestType : serviceMethod.responseType
+
+    methods[method] = {
+      name: method,
+      input: buildTypeFields(root.lookupType(methodMessageType)),
+    }
+
+    return methods
+  }, {})
 }

@@ -1,9 +1,9 @@
+import type { FC }  from 'react'
+
 import { Row }      from '@atls-ui-parts/layout'
 import { Layout }   from '@atls-ui-parts/layout'
-
-import React        from 'react'
-import { FC }       from 'react'
 import { useState } from 'react'
+import React        from 'react'
 
 import { Call }     from './call.component'
 import { Request }  from './request'
@@ -16,7 +16,7 @@ export interface EditorProps {
 }
 
 export const Editor: FC<EditorProps> = ({ service, method }) => {
-  const [response, setResponse] = useState()
+  const [response, setResponse] = useState<unknown>()
   const onCall = useCall(service, method, setResponse)
 
   return (

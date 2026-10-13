@@ -1,31 +1,31 @@
-import get             from 'lodash.get'
-import { FormEvent }   from 'react'
 import { useState }    from 'react'
 import { useCallback } from 'react'
+import get             from 'lodash.get'
 
 import { useForm }     from './use-form.hook'
 
-export const useField = (path: string[]) => {
+export const useField = (path: Array<string>) => {
   const form = useForm()
 
-  if (!form) {
-    throw new Error('Missing <FormProvider>')
-  }
-
-  const [value, setValue] = useState(get(form.getData(), path))
+  const [value, setValue] = useState<unknown>(get(form.getData(), path))
 
   const onChange = useCallback(
-    (event: FormEvent<HTMLInputElement> | string | any) => {
-      if (event && event.target) {
-        setValue(event.target.value)
-        form.setValue(path, event.target.value)
-      } else {
-        setValue(event)
-        form.setValue(path, event)
-      }
+    (event: unknown) => {
+      const nextValue =
+        typeof event === 'object' &&
+        event !== null &&
+        'target' in event &&
+        typeof event.target === 'object' &&
+        event.target !== null &&
+        'value' in event.target
+          ? event.target.value
+          : event
+
+      setValue(nextValue)
+      form.setValue(path, nextValue)
     },
     [form, path, setValue]
   )
 
-  return [value, onChange]
+  return [value, onChange] as const
 }

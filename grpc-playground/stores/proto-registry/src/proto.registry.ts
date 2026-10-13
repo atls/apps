@@ -1,20 +1,29 @@
-import Descriptor                   from 'protobufjs/ext/descriptor'
-import set                          from 'lodash.set'
-import { EventEmitter }             from 'events'
-import { Root }                     from 'protobufjs'
+import type { IFileDescriptorSet }       from 'protobufjs/ext/descriptor'
 
-import { GrpcHttpProxyClient }      from '@grpc-playground/grpc-http-proxy-client'
+import type { ServerReflectionResponse } from './reflection.interfaces'
 
-import { ServerReflectionResponse } from './reflection.interfaces'
-import { walkServices }             from './proto.utils'
-import { buildServiceMethods }      from './schema.utils'
+import * as Descriptor                   from 'protobufjs/ext/descriptor'
+import { EventEmitter }                  from 'events/'
+import { Root }                          from 'protobufjs'
+import set                               from 'lodash.set'
+
+import { GrpcHttpProxyClient }           from '@grpc-playground/grpc-http-proxy-client'
+
+import { walkServices }                  from './proto.utils'
+import { buildServiceMethods }           from './schema.utils'
+
+type ServiceSchema = {
+  name: string
+  fullName: string
+  methods: Record<string, { name: string; input: Record<string, unknown> }>
+}
 
 export class ProtoRegistry extends EventEmitter {
   client: GrpcHttpProxyClient
 
   private root: Root | null = null
 
-  private schema = {}
+  private schema: Record<string, ServiceSchema> = {}
 
   constructor(url?: string) {
     super()
@@ -30,45 +39,25 @@ export class ProtoRegistry extends EventEmitter {
     return this.schema
   }
 
-  private async loadDescriptorProtos(): Promise<Uint8Array[]> {
-    const { listServicesResponse } = await this.client.call(
-      'grpc.reflection.v1alpha.ServerReflection',
-      'ServerReflectionInfo',
-      {
-        listServices: 'true',
-      }
-    )
-
-    const fileDescriptorResponses: Array<ServerReflectionResponse> = await Promise.all(
-      listServicesResponse.service
-        .filter((service) => service.name !== 'grpc.reflection.v1alpha.ServerReflection')
-        .map((service) =>
-          this.client.call('grpc.reflection.v1alpha.ServerReflection', 'ServerReflectionInfo', {
-            fileContainingSymbol: service.name,
-          }))
-    )
-
-    return fileDescriptorResponses
-      .map((response) => response.fileDescriptorResponse!.fileDescriptorProto)
-      .flat()
-  }
-
-  getDescriptorRoot(fileDescriptorProtos: Uint8Array[]) {
+  getDescriptorRoot(fileDescriptorProtos: Array<Uint8Array>): Root {
     const descriptorSet = Descriptor.FileDescriptorSet.create()
 
     fileDescriptorProtos.forEach((descriptorByte, index) => {
       set(descriptorSet, `file[${index}]`, Descriptor.FileDescriptorProto.decode(descriptorByte))
     })
 
-    // @ts-ignore
-    return Root.fromDescriptor(descriptorSet)
+    const descriptorRoot = Root as typeof Root & {
+      fromDescriptor: (set: IFileDescriptorSet) => Root
+    }
+
+    return descriptorRoot.fromDescriptor(descriptorSet as unknown as IFileDescriptorSet)
   }
 
   async load() {
     const fileDescriptorProtos = await this.loadDescriptorProtos()
     const root = this.getDescriptorRoot(fileDescriptorProtos)
 
-    const schema = {}
+    const schema: Record<string, ServiceSchema> = {}
 
     walkServices(root, (service, name, fullName) => {
       schema[name] = {
@@ -82,5 +71,32 @@ export class ProtoRegistry extends EventEmitter {
     this.schema = schema
 
     this.emit('load', this)
+  }
+
+  private async loadDescriptorProtos(): Promise<Array<Uint8Array>> {
+    const { listServicesResponse } = await this.client.call<ServerReflectionResponse>(
+      'grpc.reflection.v1alpha.ServerReflection',
+      'ServerReflectionInfo',
+      {
+        listServices: 'true',
+      }
+    )
+
+    const fileDescriptorResponses: Array<ServerReflectionResponse> = await Promise.all(
+      listServicesResponse!.service
+        .filter((service) => service.name !== 'grpc.reflection.v1alpha.ServerReflection')
+        .map(async (service) =>
+          this.client.call<ServerReflectionResponse>(
+            'grpc.reflection.v1alpha.ServerReflection',
+            'ServerReflectionInfo',
+            {
+              fileContainingSymbol: service.name,
+            }
+          ))
+    )
+
+    return fileDescriptorResponses
+      .map((response) => response.fileDescriptorResponse!.fileDescriptorProto)
+      .flat()
   }
 }

@@ -1,13 +1,16 @@
-import { Service }   from 'protobufjs'
-import { Namespace } from 'protobufjs'
-import { Type }      from 'protobufjs'
-import { Enum }      from 'protobufjs'
-import { Field }     from 'protobufjs'
-import { MapField }  from 'protobufjs'
-import { OneOf }     from 'protobufjs'
-import { Method }    from 'protobufjs'
+import type { ReflectionObject } from 'protobufjs'
+import type { Root }             from 'protobufjs'
 
-export const isNamespace = (lookupType) => {
+import { Service }               from 'protobufjs'
+import { Namespace }             from 'protobufjs'
+import { Type }                  from 'protobufjs'
+import { Enum }                  from 'protobufjs'
+import { Field }                 from 'protobufjs'
+import { MapField }              from 'protobufjs'
+import { OneOf }                 from 'protobufjs'
+import { Method }                from 'protobufjs'
+
+export const isNamespace = (lookupType: ReflectionObject): lookupType is Namespace => {
   if (
     lookupType instanceof Namespace &&
     !(lookupType instanceof Service) &&
@@ -23,7 +26,11 @@ export const isNamespace = (lookupType) => {
   return false
 }
 
-export const matchingAncestorNamespaceLookup = (typeName, parentNamespace, namespaceChain) => {
+export const matchingAncestorNamespaceLookup = (
+  typeName: string,
+  parentNamespace: Namespace,
+  namespaceChain: string
+): string => {
   if (!parentNamespace.parent) {
     const namespaceElements = namespaceChain.split('.')
     const firstOccurrence = namespaceElements.indexOf(typeName)
@@ -31,15 +38,19 @@ export const matchingAncestorNamespaceLookup = (typeName, parentNamespace, names
     return namespaceElements.slice(firstOccurrence, lastOccurrence + 1).join('.')
   }
 
-  // eslint-disable-next-line
-  namespaceChain = parentNamespace.name + '.' + namespaceChain
-
-  return matchingAncestorNamespaceLookup(typeName, parentNamespace.parent, namespaceChain)
+  return matchingAncestorNamespaceLookup(
+    typeName,
+    parentNamespace.parent,
+    `${parentNamespace.name}.${namespaceChain}`
+  )
 }
 
-export const walkNamespace = (root, onNamespace, parentNamespace?) => {
-  // eslint-disable-next-line
-  const namespace = parentNamespace ? parentNamespace : root
+export const walkNamespace = (
+  root: Root,
+  onNamespace: (namespace: Namespace) => void,
+  parentNamespace?: Namespace
+): void => {
+  const namespace = parentNamespace ?? root
   const nestedType = namespace.nested
 
   if (nestedType) {
@@ -53,7 +64,10 @@ export const walkNamespace = (root, onNamespace, parentNamespace?) => {
   }
 }
 
-export const walkServices = (root, onService) => {
+export const walkServices = (
+  root: Root,
+  onService: (service: Service, name: string, fullName: string) => void
+): void => {
   walkNamespace(root, (namespace) => {
     const nestedNamespaceTypes = namespace.nested
     if (nestedNamespaceTypes) {
@@ -68,7 +82,7 @@ export const walkServices = (root, onService) => {
           const serviceName = [...fullNamespaceName.split('.'), nestedType.name]
           const fullyQualifiedServiceName = serviceName.join('.')
 
-          onService(nestedType, serviceName.pop(), fullyQualifiedServiceName)
+          onService(nestedType, nestedType.name, fullyQualifiedServiceName)
         }
       })
     }

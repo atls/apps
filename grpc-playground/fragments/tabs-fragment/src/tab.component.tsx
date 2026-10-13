@@ -1,14 +1,13 @@
 import { Box }  from '@atls-ui-proto/layout'
 import { Text } from '@atls-ui-proto/text'
-
-import React    from 'react'
 import { Link } from 'react-router-dom'
+import React    from 'react'
 
 export interface TabProps {
   service?: string
   method?: string
   active: boolean
-  onClose: (service: string, method: string) => any
+  onClose: (service: string, method: string) => void
 }
 
 export const Tab = ({ service, method, active, onClose }: TabProps) => (
@@ -34,7 +33,12 @@ export const Tab = ({ service, method, active, onClose }: TabProps) => (
       {method}
     </Text>
     <Box flexDirection='column' justifyContent='center' pr={12}>
-      <Text onClick={() => onClose(service ?? '', method ?? '')} style={{ cursor: 'pointer' }}>
+      <Text
+        style={{ cursor: 'pointer' }}
+        onClick={() => {
+          onClose(service ?? '', method ?? '')
+        }}
+      >
         ✖
       </Text>
     </Box>

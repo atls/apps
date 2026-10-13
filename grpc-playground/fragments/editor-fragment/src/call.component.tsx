@@ -1,6 +1,5 @@
 import { Button } from '@atls-ui-proto/button'
 import { Box }    from '@atls-ui-proto/layout'
-
 import React      from 'react'
 
 export const Call = ({ onClick }) => (

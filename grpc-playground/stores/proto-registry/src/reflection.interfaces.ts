@@ -76,7 +76,7 @@ export interface FileDescriptorResponse {
    * descriptor.proto, which uses proto2 only features, by making them opaque
    * bytes instead.
    */
-  fileDescriptorProto: Uint8Array[]
+  fileDescriptorProto: Array<Uint8Array>
 }
 
 /**
@@ -89,7 +89,7 @@ export interface ExtensionNumberResponse {
    * is <package>.<type>
    */
   baseTypeName: string
-  extensionNumber: number[]
+  extensionNumber: Array<number>
 }
 
 /** A list of ServiceResponse sent by the server answering list_services request. */
@@ -98,7 +98,7 @@ export interface ListServiceResponse {
    * The information of each service may be expanded in the future, so we use
    * ServiceResponse message to encapsulate it.
    */
-  service: ServiceResponse[]
+  service: Array<ServiceResponse>
 }
 
 /**

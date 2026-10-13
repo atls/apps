@@ -1,3 +1,5 @@
+import type { Field }    from 'protobufjs'
+
 import React             from 'react'
 
 import { NUMBER_TYPES }  from './constants'
@@ -6,7 +8,12 @@ import { BOOLEAN_TYPES } from './constants'
 import { BYTES_TYPES }   from './constants'
 import { InputField }    from './input.field'
 
-export const ScalarField = ({ field, path }) => {
+interface ScalarFieldProps {
+  field: Field
+  path: Array<string>
+}
+
+export const ScalarField = ({ field, path }: ScalarFieldProps) => {
   if (TEXT_TYPES.includes(field.type)) {
     return <InputField name={field.name} path={path} />
   }

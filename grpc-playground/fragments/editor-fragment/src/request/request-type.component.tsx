@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import { Box }    from '@atls-ui-proto/layout'
-import { Row }    from '@atls-ui-proto/layout'
-import { Layout } from '@atls-ui-proto/layout'
-import { Text }   from '@atls-ui-proto/text'
+import { Box }     from '@atls-ui-proto/layout'
+import type { FC } from 'react'
 
-import React      from 'react'
-import { FC }     from 'react'
+import { Row }     from '@atls-ui-proto/layout'
+import { Layout }  from '@atls-ui-proto/layout'
+import { Text }    from '@atls-ui-proto/text'
+import React       from 'react'
 
 export interface RequestTypeProps {
   type: string
@@ -27,7 +27,9 @@ export const RequestType: FC<RequestTypeProps> = ({ type, onChange }) => (
           name='form'
           value='form'
           checked={type === 'form'}
-          onChange={() => onChange('form')}
+          onChange={() => {
+            onChange('form')
+          }}
         />
       </Layout>
       <Layout pl='4px'>
@@ -45,7 +47,9 @@ export const RequestType: FC<RequestTypeProps> = ({ type, onChange }) => (
           name='json'
           value='json'
           checked={type === 'json'}
-          onChange={() => onChange('json')}
+          onChange={() => {
+            onChange('json')
+          }}
         />
       </Layout>
       <Layout pl='4px'>

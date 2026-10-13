@@ -1,13 +1,13 @@
-import { Column }            from '@atls-ui-proto/layout'
-import { Layout }            from '@atls-ui-proto/layout'
-import { Text }              from '@atls-ui-proto/text'
+import type { PropsWithChildren } from 'react'
 
-import React                 from 'react'
-import { PropsWithChildren } from 'react'
+import { Column }                 from '@atls-ui-proto/layout'
+import { Layout }                 from '@atls-ui-proto/layout'
+import { Text }                   from '@atls-ui-proto/text'
+import React                      from 'react'
 
 export interface GroupFieldProps {
   name: string
-  path: string[]
+  path: Array<string>
 }
 
 export const GroupField = ({ name, path, children }: PropsWithChildren<GroupFieldProps>) => (

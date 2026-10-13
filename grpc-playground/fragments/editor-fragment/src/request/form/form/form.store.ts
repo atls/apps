@@ -1,7 +1,7 @@
-import set              from 'lodash.set'
-import { EventEmitter } from 'events'
+import type { FormData } from './form.interfaces'
 
-import { FormData }     from './form.interfaces'
+import { EventEmitter }  from 'events/'
+import set               from 'lodash.set'
 
 export class FormStore extends EventEmitter {
   private data: FormData = {}
@@ -20,7 +20,7 @@ export class FormStore extends EventEmitter {
     return this.data
   }
 
-  setValue(path: string[], value) {
+  setValue(path: Array<string>, value: unknown) {
     set(this.data, path, value)
 
     this.emit('change', this.data)

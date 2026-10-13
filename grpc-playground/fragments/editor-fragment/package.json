@@ -12,6 +12,7 @@
     "@grpc-playground/data-registry": "workspace:0.0.1",
     "@grpc-playground/proto-registry": "workspace:0.0.1",
     "ace-builds": "1.26.0",
+    "events": "3.3.0",
     "lodash.get": "4.4.2",
     "lodash.set": "4.3.2",
     "protobufjs": "7.2.5",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
+    "@types/events": "3.0.0",
     "@types/lodash.get": "4.4.7",
     "@types/lodash.set": "4.3.7",
     "@types/react": "18.2.21",
