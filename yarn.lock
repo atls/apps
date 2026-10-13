@@ -252,7 +252,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/raijin@npm:latest":
+"@atls/raijin@npm:2.1.0":
   version: 2.1.0
   resolution: "@atls/raijin@npm:2.1.0"
   dependencies:
@@ -918,7 +918,7 @@ __metadata:
     "@types/events": "npm:3.0.0"
     "@types/lodash.get": "npm:4.4.7"
     "@types/lodash.set": "npm:4.3.7"
-    "@types/react": "npm:18.2.21"
+    "@types/react": "npm:18.2.22"
     "@types/react-dom": "npm:18.2.7"
     "@types/styled-system": "npm:5.1.17"
     ace-builds: "npm:1.26.0"
@@ -1643,10 +1643,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.17.23":
-  version: 4.17.23
-  resolution: "@types/lodash@npm:4.17.23"
-  checksum: 10c0/9d9cbfb684e064a2b78aab9e220d398c9c2a7d36bc51a07b184ff382fa043a99b3d00c16c7f109b4eb8614118f4869678dbae7d5c6700ed16fb9340e26cc0bf6
+"@types/lodash@npm:*":
+  version: 4.17.26
+  resolution: "@types/lodash@npm:4.17.26"
+  checksum: 10c0/7f8a95db94698f009e59c612deaba1ee98ac738156926f4c1c062853b9e46fe5fb3a7a34a15ad2f2c846f7c24b0e61e0109dfac2d9e4fa8eaa71330fd0862ea3
   languageName: node
   linkType: hard
 
@@ -1708,23 +1708,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18":
-  version: 18.2.6
-  resolution: "@types/react-dom@npm:18.2.6"
+"@types/react-dom@npm:18.2.7":
+  version: 18.2.7
+  resolution: "@types/react-dom@npm:18.2.7"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 10c0/bd734ca04c52b3c96891a7f9c1139486807dac7a2449fb72e8f8e23018bc6eeeb87a490a105cb39d05ccb7ddf80ed7a441e5bd3e5866c6f6ae8870cd723599e8
+  checksum: 10c0/bd090f5e1b13765fbc191d9eb720dd152d26c20558221963009189c4636ce11e4c1c976e4cde4a74335f997a2be651af27d3727474a8091424101a83a71eebfb
   languageName: node
   linkType: hard
 
-"@types/react@npm:18":
-  version: 18.2.13
-  resolution: "@types/react@npm:18.2.13"
+"@types/react@npm:18.2.22":
+  version: 18.2.22
+  resolution: "@types/react@npm:18.2.22"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/59b434ab9f2cf4874c8715a3d848d7cfd257419af8c0e486e2af5b6760c99aab62a511cb3456a3044d8250c93539016ca84fbd23eaac988e74987e268df2eef2
+  checksum: 10c0/ac481c8a85c95cf1eb0a09c3c7e609428f12ff61d57ac0e9c8dd94b6dcfde44306c4f41d98f83e9554ed33a66e605ba35687c0a38d367e7d77dd2bdea9d6145e
   languageName: node
   linkType: hard
 
@@ -2383,7 +2383,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "apps@workspace:."
   dependencies:
-    "@atls/raijin": "npm:latest"
+    "@atls/raijin": "npm:2.1.0"
     "@types/node": "npm:24.19.1"
     typescript: "npm:5.9.3"
   languageName: unknown
