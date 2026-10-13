@@ -1,17 +1,15 @@
+export const INTEGER64_TYPES = ['int64', 'uint64', 'sint64', 'fixed64', 'sfixed64']
+
 export const NUMBER_TYPES = [
   'number',
   'int32',
-  'int64',
   'uint32',
-  'uint64',
   'sint32',
-  'sint64',
   'fixed32',
-  'fixed64',
   'sfixed32',
-  'sfixed64',
   'double',
   'float',
+  ...INTEGER64_TYPES,
 ]
 
 export const TEXT_TYPES = ['string']
