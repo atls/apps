@@ -13,9 +13,6 @@
       "yarn lint"
     ]
   },
-  "resolutions": {
-    "@types/react": "18.2.22"
-  },
   "devDependencies": {
     "@atls/raijin": "2.1.0",
     "@types/node": "24.19.1",
