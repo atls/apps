@@ -1,7 +1,7 @@
 import type { TabProps } from './tab.component'
 
-import { Box }           from '@atls-ui-proto/layout'
-import { Layout }        from '@atls-ui-proto/layout'
+import { Box }           from '@atls-ui-parts/layout'
+import { Layout }        from '@atls-ui-parts/layout'
 import { useEffect }     from 'react'
 import { useState }      from 'react'
 import { useCallback }   from 'react'
@@ -65,7 +65,7 @@ export const Tabs = ({ service, method }: TabsProps) => {
   )
 
   return (
-    <Box mt={36} width='100%' borderBottom='1px solid black' pl={16}>
+    <Box width='100%' style={{ marginTop: 36, borderBottom: '1px solid black', paddingLeft: 16 }}>
       {tabs.map((tab) => (
         <Layout key={`${tab.service}.${tab.method}`}>
           <Tab {...tab} onClose={onClose} />

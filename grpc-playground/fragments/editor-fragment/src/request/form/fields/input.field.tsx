@@ -1,7 +1,7 @@
-import { Input }    from '@atls-ui-proto/input'
-import { Column }   from '@atls-ui-proto/layout'
-import { Layout }   from '@atls-ui-proto/layout'
-import { Text }     from '@atls-ui-proto/text'
+import { Input }    from '@atls-ui-parts/input'
+import { Column }   from '@atls-ui-parts/layout'
+import { Layout }   from '@atls-ui-parts/layout'
+import { Text }     from '@atls-ui-parts/text'
 import React        from 'react'
 
 import { useField } from '../form'
@@ -27,7 +27,15 @@ const Control = ({ type, value, onChange }: ControlProps) => {
 
   const inputValue = typeof value === 'string' || typeof value === 'number' ? value : ''
 
-  return <Input type={type} size='small' value={inputValue} onChange={onChange} />
+  return (
+    <Input
+      type={type}
+      value={inputValue}
+      onChange={(event) => {
+        onChange(type === 'number' ? event.target.valueAsNumber : event.target.value)
+      }}
+    />
+  )
 }
 
 interface InputFieldProps {

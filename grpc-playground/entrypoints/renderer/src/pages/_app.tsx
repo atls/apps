@@ -1,20 +1,12 @@
-import { ThemeProvider } from '@atls-ui-proto/theme'
-import { Global }        from '@emotion/react'
+import { ThemeProvider } from '@atls-ui-parts/theme'
 import React             from 'react'
 
+import '../global.css'
+
 const App = ({ Component, pageProps, ...props }) => (
-  <>
-    <Global
-      styles={{
-        '.ace_gutter-layer': {
-          background: 'white !important',
-        },
-      }}
-    />
-    <ThemeProvider>
-      <Component {...pageProps} {...props} />
-    </ThemeProvider>
-  </>
+  <ThemeProvider>
+    <Component {...pageProps} {...props} />
+  </ThemeProvider>
 )
 
 export default App

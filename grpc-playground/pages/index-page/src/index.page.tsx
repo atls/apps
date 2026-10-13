@@ -36,7 +36,7 @@ export const IndexPage = () => (
               <Sidebar />
             </Layout>
             <Layout flexBasis={1}>
-              <Box background='black' width={1} />
+              <Box style={{ background: 'black', width: '100%' }} />
             </Layout>
             <Layout flexGrow={1}>
               <Column width='100%' height='100%'>

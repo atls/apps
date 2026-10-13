@@ -1,0 +1,12 @@
+diff --git a/dist/server/web/spec-extension/url-pattern.d.ts b/dist/server/web/spec-extension/url-pattern.d.ts
+index 098f7a2e427d80d5cbcb553983816d6a33c65405..d806494488bd5f8f4ccce6d8768923f9f9131981 100644
+--- a/dist/server/web/spec-extension/url-pattern.d.ts
++++ b/dist/server/web/spec-extension/url-pattern.d.ts
+@@ -1,6 +1,2 @@
+-declare const GlobalURLPattern: {
+-    new (input: URLPatternInput, baseURL: string | URL, options?: URLPatternOptions): URLPattern;
+-    new (input?: URLPatternInput, options?: URLPatternOptions): URLPattern;
+-    prototype: URLPattern;
+-} | undefined;
++declare const GlobalURLPattern: (typeof globalThis extends { URLPattern: infer T } ? T : any) | undefined;
+ export { GlobalURLPattern as URLPattern };

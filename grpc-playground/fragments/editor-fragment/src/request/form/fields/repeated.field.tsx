@@ -1,17 +1,19 @@
-import type { ReactNode } from 'react'
+import type { ReactNode }    from 'react'
 
-import { Button }         from '@atls-ui-proto/button'
-import { Row }            from '@atls-ui-proto/layout'
-import { Column }         from '@atls-ui-proto/layout'
-import { Layout }         from '@atls-ui-proto/layout'
-import { Text }           from '@atls-ui-proto/text'
-import { useMemo }        from 'react'
-import { useCallback }    from 'react'
-import { useRef }         from 'react'
-import { useState }       from 'react'
-import React              from 'react'
+import { Button }            from '@atls-ui-parts/button'
+import { Row }               from '@atls-ui-parts/layout'
+import { Column }            from '@atls-ui-parts/layout'
+import { Layout }            from '@atls-ui-parts/layout'
+import { Text }              from '@atls-ui-parts/text'
+import { buttonAppearances } from '@atls-ui-parts/button'
+import { buttonShapes }      from '@atls-ui-parts/button'
+import { useMemo }           from 'react'
+import { useCallback }       from 'react'
+import { useRef }            from 'react'
+import { useState }          from 'react'
+import React                 from 'react'
 
-import { useField }       from '../form'
+import { useField }          from '../form'
 
 interface RepeatedFieldProps {
   name: string
@@ -50,8 +52,8 @@ export const RepeatedField = ({ name, path, children }: RepeatedFieldProps) => {
           <Layout pl={16} pt={36}>
             {index > 0 && (
               <Button
-                size='small'
-                inverted
+                shape={buttonShapes.sm}
+                appearance={buttonAppearances.ghost}
                 style={{ borderWidth: 0 }}
                 onClick={() => {
                   onRemove(index)
@@ -71,10 +73,15 @@ export const RepeatedField = ({ name, path, children }: RepeatedFieldProps) => {
       <Layout pl={(path.length - 1) * 16}>
         <Row alignItems='center'>
           <Layout>
-            <Text fontWeight={700}>{name}</Text>
+            <Text style={{ fontWeight: 700 }}>{name}</Text>
           </Layout>
           <Layout>
-            <Button size='small' inverted style={{ borderWidth: 0 }} onClick={onAdd}>
+            <Button
+              shape={buttonShapes.sm}
+              appearance={buttonAppearances.ghost}
+              style={{ borderWidth: 0 }}
+              onClick={onAdd}
+            >
               +
             </Button>
           </Layout>

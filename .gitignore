@@ -46,6 +46,8 @@ package.tgz
 
 # next.js output
 .next
+grpc-playground/entrypoints/renderer/src/next-env.d.ts
+grpc-playground/entrypoints/renderer/src/AGENTS.md
 
 # IDE
 .idea
