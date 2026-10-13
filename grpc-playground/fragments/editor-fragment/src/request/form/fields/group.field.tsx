@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from 'react'
 
-import { Column }                 from '@atls-ui-proto/layout'
-import { Layout }                 from '@atls-ui-proto/layout'
-import { Text }                   from '@atls-ui-proto/text'
+import { Column }                 from '@atls-ui-parts/layout'
+import { Layout }                 from '@atls-ui-parts/layout'
+import { Text }                   from '@atls-ui-parts/text'
 import React                      from 'react'
 
 export interface GroupFieldProps {
@@ -13,7 +13,7 @@ export interface GroupFieldProps {
 export const GroupField = ({ name, path, children }: PropsWithChildren<GroupFieldProps>) => (
   <Column pt={24}>
     <Layout>
-      <Text fontWeight={700}>{name}</Text>
+      <Text style={{ fontWeight: 700 }}>{name}</Text>
     </Layout>
     <Layout>
       <div style={{ width: '100%' }}>{children}</div>

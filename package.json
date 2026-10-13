@@ -13,6 +13,9 @@
       "yarn lint"
     ]
   },
+  "resolutions": {
+    "next": "patch:next@npm%3A16.4.0#./.yarn/patches/next-npm-16.4.0-a7b5e652c2.patch"
+  },
   "devDependencies": {
     "@atls/raijin": "2.1.0",
     "@types/node": "24.19.1",

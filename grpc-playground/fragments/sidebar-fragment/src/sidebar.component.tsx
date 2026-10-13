@@ -1,6 +1,6 @@
-import { Column }    from '@atls-ui-proto/layout'
-import { Layout }    from '@atls-ui-proto/layout'
-import { Text }      from '@atls-ui-proto/text'
+import { Column }    from '@atls-ui-parts/layout'
+import { Layout }    from '@atls-ui-parts/layout'
+import { Text }      from '@atls-ui-parts/text'
 import { Link }      from 'react-router-dom'
 import { useMatch }  from 'react-router-dom'
 import React         from 'react'
@@ -12,28 +12,28 @@ export const Sidebar = () => {
   const schema = useSchema()
 
   return (
-    <Column py={24} style={{ overflowY: 'auto' }}>
+    <Column style={{ paddingBlock: 24, overflowY: 'auto' }}>
       {schema &&
         Object.keys(schema).map((service) => (
           <Layout key={service}>
-            <Column pb={16}>
-              <Layout px={16} pb='8px'>
-                <Text fontSize={16}>{service}</Text>
+            <Column style={{ paddingBottom: 16 }}>
+              <Layout style={{ paddingInline: 16, paddingBottom: 8 }}>
+                <Text style={{ fontSize: 16 }}>{service}</Text>
               </Layout>
               {Object.keys(schema[service].methods).map((method) => (
-                <Layout key={method} px={16} py='2px'>
-                  <Text
-                    as={Link}
-                    to={`/${service}/${method}`}
-                    style={{ textDecoration: 'none' }}
-                    fontWeight={
-                      match?.params.service === service && match.params.method === method
-                        ? 600
-                        : 400
-                    }
-                  >
-                    {method}
-                  </Text>
+                <Layout key={method} style={{ paddingInline: 16, paddingBlock: 2 }}>
+                  <Link to={`/${service}/${method}`} style={{ textDecoration: 'none' }}>
+                    <Text
+                      style={{
+                        fontWeight:
+                          match?.params.service === service && match.params.method === method
+                            ? 600
+                            : 400,
+                      }}
+                    >
+                      {method}
+                    </Text>
+                  </Link>
                 </Layout>
               ))}
             </Column>

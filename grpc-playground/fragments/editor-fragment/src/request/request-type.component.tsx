@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import { Box }     from '@atls-ui-proto/layout'
+import { Box }     from '@atls-ui-parts/layout'
 import type { FC } from 'react'
 
-import { Row }     from '@atls-ui-proto/layout'
-import { Layout }  from '@atls-ui-proto/layout'
-import { Text }    from '@atls-ui-proto/text'
+import { Row }     from '@atls-ui-parts/layout'
+import { Layout }  from '@atls-ui-parts/layout'
+import { Text }    from '@atls-ui-parts/text'
 import React       from 'react'
 
 export interface RequestTypeProps {
@@ -14,7 +14,7 @@ export interface RequestTypeProps {
 }
 
 export const RequestType: FC<RequestTypeProps> = ({ type, onChange }) => (
-  <Box width='100%' borderTop='1px solid black' pl={36} background='white'>
+  <Box width='100%' style={{ borderTop: '1px solid black', paddingLeft: 36, background: 'white' }}>
     <Row alignItems='center'>
       <Layout>
         <Text>Type:</Text>
